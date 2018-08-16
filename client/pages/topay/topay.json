@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "disableScroll":true,
+  "usingComponents": {
+    "paySix": "../component/key_component/component"   
+  }
+}

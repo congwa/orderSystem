@@ -1,0 +1,187 @@
+.container {
+  width: 100%;
+  background: #f5f5f9;
+}
+.store_info {
+  width: 92%;
+  padding: 40rpx 4%;
+  margin-top: 20rpx;
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+}
+.store_info image {
+  width: 100rpx ;
+  height: 100rpx;
+  margin-right: 30rpx;
+}
+.store_info .carteen {
+  height: 100rpx;
+}
+.store_info .carteen text {
+  font-size: 30rpx;
+  color: #333;
+}
+.store_info .carteen .score {
+  width: 100%;
+  height: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.store_info .carteen .score text:first-of-type {
+  color: #333;
+  font-size: 24rpx;
+}
+.store_info .carteen .score text:last-of-type {
+  color: #999;
+  font-size: 22rpx;
+}
+.store_info .carteen .score view {
+  width: 161rpx;
+  height: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.store_info .carteen .score view image {
+  display: inline-block;
+  width: 24rpx;
+  height: 22rpx;
+  margin-right: 5rpx;
+}
+.review_text {
+  width: 92%;
+  padding: 10rpx 4% 20rpx;
+  background: #fff;
+  position: relative;
+  height: 225rpx;
+}
+.review_text textarea {
+  width: 92%;
+  padding: 20rpx 4%;
+  background: #f5f5f9;
+  height: 205rpx ;
+  font-size: 26rpx;
+  color: #999;
+}
+.review_text text {
+  position: absolute;
+  right: 6%;
+  bottom: 0;
+  color: #999;
+  font-size: 26rpx;
+}
+.upload_contain {
+  width: 92%;
+  padding: 40rpx 4% 0;
+  background: #fff;
+}
+.upload_contain .upload_pic {
+  width: 100%;
+  border-top: 1rpx dashed #ddd;
+  padding: 40rpx 0;
+  display: flex;
+}
+.upload_contain .upload_pic .upload_btn {
+  width: 162rpx;
+  height: 162rpx;
+  border: 1rpx solid #dcdcdc;
+  border-radius: 5rpx;
+  position: relative;
+}
+.upload_contain .upload_pic .upload_btn image {
+  width: 64rpx;
+  height: 52rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.upload_contain .upload_pic .tip_text {
+  height: 80rpx;
+  margin-left: 15rpx;
+  padding: 45rpx 0;
+}
+.upload_contain .upload_pic .tip_text text {
+  display: block;
+  width: 100%;
+}
+.upload_contain .upload_pic .tip_text text:first-of-type {
+  color: #666;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.upload_contain .upload_pic .tip_text text:last-of-type {
+  color: #999;
+  font-size: 24rpx;
+}
+.store_grade {
+  width: 96%;
+  padding: 20rpx 0 20rpx 4%;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.store_grade .store_title {
+  width: 100%;
+  height: 74rpx;
+  line-height: 74rpx;
+  border-bottom: 1rpx solid #ddd;
+  font-size: 28rpx;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+.store_grade .store_title image {
+  width: 30rpx ;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.store_grade .store_grade_level {
+  width: 100%;
+  padding-right: 110rpx;
+  box-sizing: border-box;
+}
+.store_grade .store_grade_level .taste {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.store_grade .store_grade_level .taste .faces {
+  width: 400rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.store_grade .store_grade_level .taste .faces image {
+  width: 44rpx;
+  height: 44rpx;
+}
+.store_grade .store_grade_level .taste text:first-of-type {
+  color: #666666;
+  font-size: 26rpx;
+}
+.store_grade .store_grade_level .taste text:last-of-type {
+  color: #999;
+  font-size: 24rpx;
+}
+.issue {
+  width: 92%;
+  padding: 30rpx 4%;
+  background: #fff;
+}
+.issue .issue_btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  -webkit-border-radius: 5rpx;
+  -moz-border-radius: 5rpx;
+  border-radius: 5rpx;
+  background: #ff6b12;
+}

@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/az/az",
+    "pages/index/index",
+    "pages/mycenter/mycenter",
+    "pages/indent/indent",
+    "pages/order/order",
+    "pages/appointment/appointment",
+    "pages/shop/shop",
+    "pages/shop_list/shop_list",
+    "pages/topay/topay",
+    "pages/pay_input/pay_input",
+    "pages/pay_success/pay_success",
+    "pages/points/points",
+    "pages/coupon/coupon",
+    "pages/pocket/pocket",
+    "pages/reviewlist/reviewlist",
+    "pages/reviewfdetails/reviewfdetails",
+    "pages/review/review",
+    "pages/component/key_component/component",
+    "pages/switchcity/switchcity",
+    "pages/mytalk/mytalk",
+    "pages/droppassword/droppassword"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小橘点餐",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#888888",
+    "selectedColor": "#ff6b12",
+    "borderStyle": "#b7b7b7",
+    "list": [
+      {
+        "selectedIconPath": "pages/images/6shop_65.png",
+        "iconPath": "pages/images/6shop_61.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "pages/images/order_15.png",
+        "iconPath": "pages/images/order_14.png",
+        "pagePath": "pages/indent/indent",
+        "text": "订单"
+      },
+      {
+        "selectedIconPath": "pages/images/my_04.png",
+        "iconPath": "pages/images/my_03.png",
+        "pagePath": "pages/mycenter/mycenter",
+        "text": "我的"
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "navigationBarTitleText": "评论详情",
+  "usingComponents": {
+    "component-talk": "../talk/talk"
+  }
+}

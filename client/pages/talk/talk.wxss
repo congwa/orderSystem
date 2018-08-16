@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: start;
+  border-bottom:1rpx solid #ddd;
+  padding-bottom: 20rpx;
+}
+.container .left {
+  flex: 1;
+}
+.container .left .img-title {
+  width: 70rpx;
+  height: 70rpx;
+}
+.container .right {
+  flex: 7;
+}
+.container .right .date {
+  float: right;
+  color: #888888;
+  font-size: 20rpx;
+}
+.container .right .title {
+  font-size: 26rpx;
+  color: #333333;
+
+}
+.container .right .grade {
+  display: flex;
+  justify-content: start;
+  margin-top:10rpx;
+}
+.container .right .grade  .grade_img{
+  width: 140rpx;
+  display: flex;
+  align-items: center;
+  justify-content: ceter;
+}
+.container .right .grade .g-img {
+  display: block;
+  width: 24rpx;
+  height: 22rpx;
+}
+.container .right .grade .r-price {
+  font-size: 26rpx;
+  color: #333333;
+  margin-left: 20rpx;
+}
+.container .right .tasete {
+  display: flex;
+  justify-content: flex-start;
+}
+.container .right .tasete .g-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.container .right .tasete .g-con .g-con-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+.container .right .tasete .g-con .g-con-text {
+  font-size: 26rpx;
+  color: #333333;
+  
+}
+.container .right .desc {
+  color: #333333;
+  font-size: 26rpx;
+   margin-top: 10rpx;
+}
+.container .right .images {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .right .images .img {
+  flex: 0 0 30%;
+  width: 190rpx;
+  height: 190rpx;
+  margin-top: 10px;
+  position: relative;
+}
+.container .right .images .img .img-box {
+  width: 190rpx;
+  height: 190rpx;
+}
+.container .right .images .img:nth-child(3n-1) {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.container .right .images .img .shader {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  bottom: 0rpx;
+  right: 0rpx;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 190rpx;
+  font-size: 24rpx;
+}

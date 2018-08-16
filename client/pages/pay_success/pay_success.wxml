@@ -1,0 +1,16 @@
+<view class="container">
+    <block>
+        <icon type="success" size="90"></icon>
+    </block>
+    <view  wx:if="{{type==''}}" class="tip_txt">支付成功</view>
+    <view wx:elif="{{type==ownType.onlyTable}}" class="tip_txt">订桌成功</view>
+    <!-- <view wx:if="{{type==''}}" class="tip_sum">{{price}}</view> -->
+    <view class='ensure' bindtap='checkOrder'>查看详情</view>
+
+          <!-- <form bindsubmit="propell" report-submit="true" bindreset="propell">
+         <view class="">
+            <input name="input" />
+            <button formType="submit" >提交</button>
+         </view>
+        </form> -->
+</view>

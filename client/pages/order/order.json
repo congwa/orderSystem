@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "点餐",
+  "component": true,
+  "disableScroll": true,
+  "usingComponents": {
+    "component-talk": "../talk/talk"
+  }
+}

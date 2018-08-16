@@ -1,0 +1,148 @@
+<!--pages/mycenter/mycenter.wxml-->
+
+<view class="mask" wx:if="{{maskInputPassed}}" style='text-align:center;' catchtap='showInputPassed'>
+  <view class="content">
+      <view style='margin-bottom:50rpx;font-size:30rpx;color:#333;'>设置支付密码</view>
+      <paySix 
+      bindvalueSix="valueSix" 
+      input_value="{{inputData.input_value}}" 
+      value_length="{{inputData.value_length}}" 
+      isNext="{{inputData.isNext}}" 
+      get_focus="{{inputData.get_focus}}" 
+      focus_class="{{inputData.focus_class}}" 
+      value_num="{{inputData.value_num}}"
+      height="{{inputData.height}}" 
+      width="{{inputData.width}}" 
+      see="{{inputData.see}}" 
+      interval="{{inputData.interval}}">
+      </paySix>
+    </view>
+  </view>
+  <view class="mask" wx:if="{{maskRevisePassed}}" style='text-align:center;' catchtap='showRevisePassed'>
+    <view class="content">
+      <view style='margin:30rpx;font-size:30rpx;color:#333;'>修改支付密码 
+        
+      </view>
+      <view style='margin:30rpx;font-size:26rpx;color:#666;'>原密码
+        <span bindtap='droppassword' style="float:right;">找回密码</span>
+      </view>
+      <paySix 
+      bindvalueSix="valueSixRe" 
+      input_value="{{inputData2.input_value}}" 
+      value_length="{{inputData2.value_length}}" 
+      isNext="{{inputData2.isNext}}" 
+      get_focus="{{inputData2.get_focus}}" 
+      focus_class="{{inputData2.focus_class}}" 
+      value_num="{{inputData2.value_num}}"
+      height="{{inputData2.height}}" 
+      width="{{inputData2.width}}" 
+      see="{{inputData2.see}}" 
+      interval="{{inputData2.interval}}">
+      </paySix>
+      <view style='margin:30rpx;font-size:26rpx;color:#666;'>新密码</view>
+      <paySix 
+      bindvalueSix="valueSixRe2" 
+      input_value="{{inputData3.input_value}}" 
+      value_length="{{inputData3.value_length}}" 
+      isNext="{{inputData3.isNext}}" 
+      get_focus="{{inputData3.get_focus}}" 
+      focus_class="{{inputData3.focus_class}}" 
+      value_num="{{inputData3.value_num}}"
+      height="{{inputData3.height}}" 
+      width="{{inputData3.width}}" 
+      see="{{inputData3.see}}" 
+      interval="{{inputData3.interval}}">
+      </paySix>
+    </view>
+</view>
+<view class='container'>
+  <view class='top'>
+    <image src='{{userAvatarUrl}}'></image>
+    <view class='preson_infomation'>
+      <text class='name'>{{userName}}</text>
+      <text wx:if="{{issign==1}}" class='sign' style='margin-left:10rpx;' bindtap='goSign'>签到</text>
+      <text wx:if="{{issign==2}}" class='sign signed' style='margin-left:10rpx;'>已签到</text>
+      <view class='num'>
+        <text bindtap='toamount'>余额：{{remaind}}</text>
+        <text bindtap='points' >积分：{{points}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='insert_img'>
+    <image src="../images/my_07.jpg" class='prop' mode='widthFix'></image>
+  </view>
+
+  <view class='my_list'>
+    <navigator url='../mytalk/mytalk'>
+      <view class='list_part'>
+        <text>我的点评</text>
+        <image src='../images/right_10.png'></image>
+      </view>
+    </navigator>
+    <navigator url='../pocket/pocket'>
+      <view class='list_part'>
+        <text>我的钱包</text>
+        <image src='../images/right_10.png'></image>
+      </view>
+    </navigator>
+    <navigator url='../points/points'>
+      <view class='list_part'>
+        <text>我的积分</text>
+        <image src='../images/right_10.png'></image>
+      </view>
+    </navigator>
+    <navigator url='../coupon/coupon'>
+      <view class='list_part'>
+        <text>我的优惠券</text>
+        <image src='../images/right_10.png'></image>
+      </view>
+    </navigator>
+    <view class='cortlTel' bindtap='showKey'>
+      <view class='list_part'>
+        <text>支付密码</text>
+        <image src='../images/right_10.png'></image>
+      </view>
+    </view>
+   
+     <view class='cortlTel' bindtap='showTel'>
+      <view class='list_part'>
+        <text>绑定手机</text>
+        <image src='../images/right_10.png'></image>
+      </view>
+     </view>
+
+     <view class='cortlTel' bindtap='toPassWord'>
+      <view class='list_part'>
+        <text>修改找回密码</text>
+        <image src='../images/right_10.png'></image>
+      </view>
+     </view>
+
+     <view class='cortlTel' bindtap='checkOrder'>
+         <view class='list_part'>
+        <text>我的订单</text>
+        <image src='../images/right_10.png'></image>
+      </view>
+     </view>
+  </view>
+  <!-- <view class='bottom_box'>
+    <image src='../images/mybottom_pic_09.jpg' class='bot_img' mode=''></image>
+  </view> -->
+
+  <!-- 绑定手机弹窗 -->
+  <view class="telephone_container" wx:if='{{control}}' bintap="closetelephoneMask">
+    <view class="telephone">
+      <view class="tel_title">手机验证 <text bindtap='showTel'>×</text></view>
+      <input class="tel" adjust-position='true' cursor-spacing="10" type="number" maxlength="11" placeholder="请输入11位手机号" placeholder-style="color:#999;" bindinput="inputPhoneNum"  auto-focus/>
+      <view class="code_container">
+        <input class="codes" type="number" adjust-position='true' cursor-spacing="10" placeholder="请输入6位验证码" maxlength="6" placeholder-style="color:#999;" bindinput="addCode"/>
+         <view wx:if="{{!send && !alreadySend}}" class="getcode" bindtap="">获取验证码</view>
+         <view wx:if="{{send}}" class="getcode2" bindtap="sendMsg">获取验证码</view>
+         <view wx:if="{{!send && alreadySend}}" class="getcode" bindtap="">{{second+"s"}}</view>
+        <!-- <text style="font-size:25rpx" wx:if="{{alreadySend}}" class="sendMsg" bindtap="sendMsg">{{second+"s"}}</text> -->
+      </view>
+      <!-- <view class='ensure' bindtap="bindIphone">确定</view> -->
+      <button class='ensure {{!disabled?"active":""}}' type="{{buttonType}}" disabled="{{disabled}}" bindtap="onSubmit">确定</button>
+    </view>
+  </view>
+</view>

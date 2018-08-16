@@ -1,0 +1,108 @@
+/* 支付密码框 */
+
+.pay_number {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #cfd4d3;
+  /* border-radius:10rpx; */
+}
+
+.pay_number_interval {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #cfd4d3;
+  /* border:none; */
+}
+
+/* 第一个格子输入框 */
+.content .noBorder{
+   border-left:none; 
+}
+
+
+/* 支付密码框聚焦的时候 */
+
+.get_focus {
+  border-color: orange;
+}
+
+/* 单个格式样式 */
+
+.password_dot {
+  flex: 1;
+  border-left: 1px solid #cfd4d3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password_dot_interval {
+  flex: 1;
+  border: 1px solid #cfd4d3;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 单个格式样式（聚焦的时候） */
+
+.get_focus_dot {
+  flex: 1;
+  border-left: 1px solid orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.get_focus_dot_interval {
+  flex: 1;
+  border: 1px solid orange;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 模拟光标 */
+
+.cursor {
+  width: 1px;
+  height: 15px;
+  background-color: orange;
+  animation: focus 0.7s infinite;
+}
+
+/* 光标动画 */
+
+@keyframes focus {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* 格式中的点 */
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+/* 输入框 */
+
+.input_container {
+  height: 0;
+  width: 0;
+  min-height: 0;
+  position: relative;
+  text-indent: -999em;
+  left: -100%;
+}

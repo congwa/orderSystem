@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#f4823e",
+  "navigationBarTitleText": "我的",
+  "component": true,
+  "usingComponents": { 
+    "paySix": "../component/key_component/component"   
+  }
+}

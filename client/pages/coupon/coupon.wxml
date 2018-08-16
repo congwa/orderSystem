@@ -1,0 +1,53 @@
+<!-- 优惠券界面 -->
+<view class='container'>
+  <view class="tab-bar">
+    <view class="tab-bar-con {{curTab==item.type?'active':''}}" wx:for="{{couponView}}" wx:key="*this" data-current="{{item.type}}" bindtap="changeTab">
+      {{item.text}}
+    </view>
+  </view>
+  <swiper current="{{curTab-1}}" duration="300" bindchange="swiperTab" style="height:900rpx">
+    <!-- 未使用 -->
+    <swiper-item wx:for="{{couponView}}" wx:key="*this" wx:for-item="oneItem" wx:for-index="oneIndex">
+      <scroll-view class="cou {{'cou'+ oneIndex}}" bindscrolltolower="bindDownLoad">
+        <view class="cou-container {{'cou-container'+oneIndex}}" wx:if="{{couponData[oneIndex] && couponData[oneIndex]['list']}}" wx:for="{{couponData[oneIndex].list}}" wx:for-item="item1" data-cId="{{item1.id}}" data-shopId="{{item1.lid}}" bindtap="selectOneCoupon">
+          <view class="left">
+            <text class="icon">￥</text>
+            <text class="mon">{{item1.price/100}}</text>
+          </view>
+          <view class='right-container'>
+            <view class="center">
+              <view class="c-top">
+                <text class="c-t-fixed">满</text>
+                <text class="c-t-vary">{{item1.full_price/100}}</text>
+                <text class="c-t-fixed">即可使用</text>
+              </view>
+              <view class="c-bottom">
+                <text class="c-b-fiexed">有效期:</text>
+                <text class="c-b-vary">{{item1.end_time}}</text>
+              </view>
+            </view>
+            <view class="right">
+              <view class="r-con {{'r-con'+curTab}}" wx:if="{{curTab==1}}">
+                <view class="text">
+                  {{item1.title}}
+                  <text>店</text>
+                </view>
+                <view class="use-btn">点击使用</view>
+              </view>
+              <view class="r-con {{'r-con'+curTab}}" wx:if="{{curTab==2}}">
+                <image class="r-con-img {{'r-con-img'+curTab}}" src="http://wangcong.fun/images/ticket_03.png"></image>
+              </view>
+              <view class="r-con {{'r-con'+curTab}}" wx:if="{{curTab==3}}">
+                <image class="r-con-img {{'r-con-img'+curTab}}" src="http://wangcong.fun/images/ticket_08.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{!(couponData[oneIndex] && couponData[oneIndex]['list'])}}" class="no-coupon ">
+          <image src="../images/empty4.png"></image>
+          <text>没有可用优惠券</text>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

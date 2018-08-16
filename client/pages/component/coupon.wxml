@@ -1,0 +1,43 @@
+<!--
+    优惠券弹窗内容
+    数据: couponData[{
+            reduce:'',
+            from:'',
+            date:'',
+            shopName:'',
+            Id:'',
+            shopId:''
+    }]
+-->
+
+<template name="coupon-st">
+    <view class="cou">
+        <view class="cou-container" wx:for="{{couponData}}" wx:for-item="item1"  data-cid="{{item1.id}}"  data-shopid="{{item1.lid}}" >
+            <view class="left">
+                <text class="icon">￥</text>
+                <text class="mon">{{item1.price}}</text>
+            </view>
+            <view class='right-container'>
+                <view class="center">
+                    <view class="c-top">
+                        <text class="c-t-fixed">满</text>
+                        <text class="c-t-vary">{{item1.full_price}}</text>
+                        <text class="c-t-fixed">即可使用</text>
+                    </view>
+
+                    <view class="c-bottom">
+                        <text class="c-b-fiexed">有效期:</text>
+                        <text class="c-b-vary">{{item1.end_time}}</text>
+                    </view>
+                </view>
+                <view class="right">
+                    <view class="r-con">
+                        <view class="text">{{item1.title}}<text></text></view>
+                        <view class="use-btn" bindtap="selectOneCoupon" data-cid="{{item1.id}}">点击使用</view>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+    </view>
+</template>

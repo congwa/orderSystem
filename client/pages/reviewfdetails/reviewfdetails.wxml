@@ -1,0 +1,4 @@
+<!--pages/reviewfdetails/reviewfdetails.wxml-->
+<view class='details_container'>
+   <component-talk t-type="2" t-list="{{commitList}}"></component-talk>
+</view>

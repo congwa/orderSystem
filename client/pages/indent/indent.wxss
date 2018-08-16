@@ -1,0 +1,353 @@
+.container {
+  background: #f5f5f9;
+  width: 100%;
+  padding: 2%;
+  font-size: 30rpx;
+  color: #333333;
+}
+.scroll_container{
+  height: auto;
+}
+.container .order_part {
+  width: 96%;
+  margin-bottom: 20rpx;
+  background: #fff;
+  padding: 0 2% 10rpx;
+}
+.container .order_part .shop_phone {
+  width: 100%;
+  height: 77rpx;
+  line-height: 77rpx;
+  border-bottom: 1rpx dashed #dddddd;
+  text-align: center;
+  position: relative;
+  margin: 0 !important;
+}
+.container .order_part .shop_phone image {
+  width: 25rpx;
+  height: 25rpx;
+}
+.container .order_part .shop_phone::before,
+.container .order_part .shop_phone::after {
+  display: block;
+  content: "";
+  width: 28rpx;
+  height: 28rpx;
+  background: #f5f5f9;
+  -webkit-border-radius: 28rpx;
+  -moz-border-radius: 28rpx;
+  border-radius: 28rpx;
+  position: absolute;
+  bottom: -14rpx;
+}
+.container .order_part .shop_phone::before {
+  left: -28rpx;
+}
+.container .order_part .shop_phone::after {
+  right: -28rpx;
+}
+.container .order_part .restaurant {
+  width: 96%;
+  padding: 30rpx 2% 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .order_part .restaurant image {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 5rpx;
+}
+.container .order_part .restaurant .restaurant_name {
+  width: 380rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .order_part .restaurant .restaurant_name text {
+  display: block;
+  width: 100%;
+  font-size: 30rpx;
+}
+.container .order_part .restaurant .restaurant_name text:last-of-type {
+  color: #888888;
+  font-size: 24rpx;
+}
+.container .order_part .restaurant .status {
+  width: 160rpx;
+  height: 100rpx;
+}
+.container .order_part .restaurant .status text {
+  color: #ff6b12;
+  text-align: center;
+  display: block;
+}
+.container .order_part .restaurant .status view {
+  width: 160rpx;
+  height: 48rpx;
+  color: #fff;
+  line-height: 48rpx;
+  font-size: 30rpx;
+  background: #ff6b12;
+  -webkit-border-radius: 5rpx;
+  -moz-border-radius: 5rpx;
+  border-radius: 5rpx;
+  text-align: center;
+}
+.container .order_part .restaurant .status view.goEvaluate {
+  background: #47cacc;
+}
+.container .order_part .restaurant .status view.evaluated {
+  color: #47cacc;
+  background: #fff;
+  border: 1rpx solid #47cacc;
+  box-sizing: border-box;
+}
+.container .order_part .restaurant .status view.refund {
+  width: 160rpx;
+  font-size: 25rpx;
+  border-color: #ddd ;
+  background: #f8f8f8;
+  color: #888;
+}
+.container .order_part .order_sheet {
+  width: 96%;
+  padding: 0rpx 2% ;
+}
+.container .order_part .order_sheet .order_sheet_part {
+  width: 96%;
+  padding: 25rpx 2% 0;
+  height: 80rpx;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .order_part .order_sheet .order_sheet_part image {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 5rpx;
+}
+.container .order_part .order_sheet .order_sheet_part .foods_name {
+  width: 463rpx;
+  height: 100%;
+}
+.container .order_part .order_sheet .order_sheet_part .foods_name text {
+  display: block;
+  font-size: 26rpx;
+  color: #333333;
+}
+.container .order_part .order_sheet .order_sheet_part .foods_name text:last-of-type {
+  color: #888888;
+}
+.container .order_part .order_sheet .order_sheet_part:last-of-type {
+  padding-bottom: 25rpx;
+}
+.container .order_part .discounts {
+  border-bottom: 1rpx dashed #ddd;
+  width: 92%;
+  padding: 30rpx 4% 26rpx;
+}
+.container .order_part .discounts .disct_info {
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .order_part .discounts .disct_info view {
+  font-size: 26rpx ;
+  color: #888;
+}
+.container .order_part .discounts .disct_info view text {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-radius: 30rpx;
+  background: #ff6b12;
+  color: #fff;
+  margin-right: 20rpx ;
+  font-size: 22rpx;
+  text-align: center;
+}
+.container .order_part .discounts .disct_info view:last-of-type {
+  color: #ff2b4d;
+}
+.container .order_part .sum_price {
+  width: 92%;
+  padding: 0 4%;
+  height: 90rpx;
+  border-bottom: 1rpx dashed #ddd;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container .order_part .sum_price .cheap {
+  display: block;
+  color: #888;
+  font-size: 26rpx ;
+  margin-right: 40rpx;
+}
+.container .order_part .sum_price .sum {
+  color: #333;
+  font-size: 26rpx;
+}
+.container .order_part .sum_price .sum text {
+  color: #ff2b4d;
+}
+.container .order_part .pay_infomation {
+  width: 92%;
+  border-bottom: 1rpx dashed #ddd;
+  padding: 25rpx 4%;
+}
+.container .order_part .pay_infomation .pay_part {
+  width: 100%;
+  padding: 15rpx 0;
+  color: #888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .order_part .pay_infomation .pay_part text {
+  display: block;
+  font-size: 26rpx;
+}
+.container .order_part .pay_infomation .pay_part text:first-of-type {
+  width: 151rpx;
+}
+.container .order_part .pay_infomation .pay_part text:last-of-type {
+  color: #333;
+}
+.container .order_part .pay_infomation .pay_part text.pay_status {
+  color: #47cacc ;
+}
+.container .order_part .customer {
+  border: none;
+}
+.container .order_part .customer .remark {
+  align-items: flex-start;
+}
+.cancel_table_container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+}
+.cancel_table_container .cancel_table {
+  width: 92%;
+  height: 575rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+.cancel_table_container .cancel_table .cancel_title {
+  width: 92%;
+  margin: 0 auto;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  position: relative;
+}
+.cancel_table_container .cancel_table .cancel_title text {
+  position: absolute;
+  top: 15%;
+  right: 10rpx;
+  color: #888;
+  font-size: 40rpx;
+}
+.cancel_table_container .cancel_table .code_container {
+  width: 92%;
+  margin: 30rpx auto;
+}
+.cancel_table_container .cancel_table .code_container .refund_title,
+.cancel_table_container .cancel_table .code_container .can_tit {
+  color: #666;
+  font-size: 30rpx;
+}
+.cancel_table_container .cancel_table .code_container .refund_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cancel_table_container .cancel_table .code_container .refund_title text:last-of-type {
+  color: #ff6b12;
+}
+.cancel_table_container .cancel_table .code_container textarea {
+  width: 100%;
+  height: 196rpx;
+  padding: 10rpx 4%;
+  box-sizing: border-box;
+  border: 1rpx solid #ddd;
+  margin-top: 30rpx;
+}
+.cancel_table_container .cancel_table .btn_container {
+  width: 92%;
+  margin: 40rpx auto;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cancel_table_container .cancel_table .btn_container view {
+  width: 280rpx;
+  height: 80rpx;
+  color: #333;
+  font-size: 30rpx;
+  border-radius: 5rpx;
+  line-height: 80rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.cancel_table_container .cancel_table .btn_container view.cancel_btn {
+  border: 1rpx solid #ddd;
+}
+.cancel_table_container .cancel_table .btn_container view.ensure {
+  background: #ff6b12;
+  color: #fff;
+}
+.empty_container{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+.empty_container .empty{
+  width: 300rpx;
+  height: 400rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+}
+.empty_container .empty image{
+  display:block;
+  width: 110rpx;
+  height: 100rpx;
+  margin: 20rpx auto;
+}
+.empty_container .empty text{
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #666;
+  font-size: 26rpx;
+}

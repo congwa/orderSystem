@@ -1,0 +1,23 @@
+<!-- 上部分导航条 content[nearbyTab].text -->
+<template name="idnex_viewst">
+  <view class="select_container">
+    <view class="selec_center">
+      <view>
+        <view bindtap='enterMarkAllFood'>{{nav_indexData[allFoodTab].title}}
+          <span></span>
+        </view>
+        <view wx:if="{{nearbyTab == -1}}" bindtap='enterMarkNearby'>{{nearbyLeftTab==-1?'附近':cityData.children[nearbyLeftTab].fullname}}
+          <span></span>
+        </view>
+        <view data-d="{{nearbyTab}}" wx:if="{{nearbyTab != -1}}" bindtap='enterMarkNearby'>{{nearbyTab}}
+          <span></span>
+        </view>
+        <view bindtap='enterMarkSoftList'>{{soft_list[softListTab].text}}
+          <span></span>
+        </view>
+      </view>
+      <view class="selec_content"> 
+      </view>
+    </view>
+  </view>
+</template>

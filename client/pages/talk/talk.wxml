@@ -1,0 +1,41 @@
+<view class='container' data-talkid="{{tList.id}}" data-type="{{tType}}">
+  <view class="left">
+    <image class='img-title' src="{{URL.PROJECT_ROOT+tList.head_img}}"></image>
+  </view>
+  <view class='right'>
+    <text class="date">{{tList.addtime}}</text>
+    <view class='title'>{{tList.nick_name}}</view>
+    <view class='grade' >
+      <!-- 星星数量 -->
+       <view class='grade_img'>
+          <image  class="g-img" wx:for="{{gradeArr}}" src="{{gradeDes['yes']}}" wx:key="*this"></image>
+          <image  class="g-img" wx:for="{{gradeNoArr}}" src="{{gradeDes['no']}}" wx:key="*this"></image>
+      </view>
+      <view class="r-price">{{tList.title}}</view>
+      <view class="r-price" wx:if="{{tType==talkType.myTalk && tList.price}}">75/人</view>
+    </view>
+
+    <!-- 口味评价图 -->
+    <view class="tasete" wx:if="{{tType==talkType.desTalk || tType==talkType.myTalk}}">
+      <view class='g-con' wx:for="{{list}}" wx:key="*this">
+      <!-- 这里的list是个数组 index为key -->
+        <image class="g-con-icon" src="{{tList[index]-1>5?item[4].src:item[tList[index]-1].src}}" data-type="{{tList[index]-1}}" data-in="{{index}}"></image>
+        <text class="g-con-text">{{tList[index]-1>=5?item[4].name:item[tList[index]-1].name}}</text>
+      </view>
+    </view>
+    <view class='desc'>{{tList.content}}</view>
+    <!-- 最多三个图片 -->
+    <view class='images' wx:if="{{talkType.myTalk==tType||talkType.listTalk==tType||talkType.orderTalk==tType}}">    
+     <view class="img" wx:for="{{tList.thumb}}" wx:if="{{index<3}}" wx:key="*this" >
+        <image class="img-box" src="{{URL.PROJECT_ROOT+item}}" data-src="{{item}}" bindtap="previewImage"></image>
+        <view wx:if="{{index==2}}" class="shader" bindtap="clickLookMore" data-tdata="{{tList}}">点击查看更多</view>
+      </view>
+         
+    </view>
+    <!-- 多个图片平铺 -->
+    <view class='images' wx:if="{{talkType.desTalk==tType}}">
+       <image class="img" wx:for="{{tList.thumb}}" src="{{URL.PROJECT_ROOT+item}}" data-src="{{item}}" wx:key="*this" bindtap="previewImage"></image>
+    </view>
+
+  </view>
+</view>

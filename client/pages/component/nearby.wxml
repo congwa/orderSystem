@@ -1,0 +1,28 @@
+<!-- 附近弹窗内容页面 -->
+<template name="nearbyst">
+   <view class="nearby">
+     <scroll-view scroll-y  style="height: {{windowHeight-200}}rpx;" class="left">
+      <view class="l-con {{(nearbyLeftTab==-1)?'active':''}}"
+       data-type="-1"
+       bindtap="clickNearbyLeft"
+      >附近</view>
+      <view class="l-con {{(nearbyLeftTab==value.id)?'active':''}}" 
+          wx:for="{{cityData.children}}" 
+          wx:key="*this" 
+          wx:for-index="key"  
+          wx:for-item="value"
+          data-type="{{value.id}}"
+          bindtap="clickNearbyLeft"
+       >{{value.fullname}}</view>
+
+     </scroll-view>
+     <view  wx:if="{{nearbyLeftTab == -1}}" class="right">
+        <view class="r-con {{nearbyTab==item?'active':''}}" 
+        wx:for="{{dis_list}}" 
+        wx:key="*this"
+        bindtap="clickNearbySelect" 
+        data-type="{{item}}"
+        >{{item}}M</view>
+     </view>
+   </view>
+</template>

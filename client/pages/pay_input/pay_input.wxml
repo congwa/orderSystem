@@ -1,0 +1,110 @@
+<!-- pages/topay/topay.wxml -->
+<!-- 优惠券弹窗 -->
+<import src="../component/coupon.wxml" />
+<view class="mark" hidden="{{!markCoupon}}">
+    <view class="mark-body">
+        <view class="title">
+            选择优惠券
+            <text class="close" bindtap="closeMarkCoupon">×</text>
+        </view>
+        <view wx:if="{{curSelectCoupon==0}}" class="empty_container">
+            <image src="../images/empty4.png"></image>
+            <text>没有可用优惠券</text>
+        </view>
+        <template is="coupon-st" data="{{couponData}}"></template>
+    </view>
+</view>
+<!-- 输入密码弹窗 -->
+<view class="mask" wx:if="{{maskInputPassed}}" style='text-align:center;' catchtap='showInputPassed'>
+    <view class="content">
+        <view style='margin-bottom:50rpx;font-size:30rpx;color:#333;'>请输入支付密码</view>
+        <paySix bindvalueSix="valueSix" input_value="{{inputData.input_value}}" value_length="{{inputData.value_length}}" isNext="{{inputData.isNext}}" get_focus="{{inputData.get_focus}}" focus_class="{{inputData.focus_class}}" value_num="{{inputData.value_num}}" height="{{inputData.height}}" width="{{inputData.width}}" see="{{inputData.see}}" interval="{{inputData.interval}}"></paySix>
+    </view>
+</view>
+<view class="container">
+    <view class="add">
+        <image src="../images/add.png"></image>
+    </view>
+    <view class="getPrice">
+        <!-- <view class="hasPrice">
+            <text>紫曙光餐厅</text>
+            <view class="price">
+                ¥188.8
+            </view>
+        </view> -->
+        <view class="need_input_price">
+            <view>
+                <image src="../images/pya_03.png"></image>
+                <text>消费金额</text>
+            </view>
+            <input type="digit" placeholder="请咨询店员后输入" bindinput='getValue' />
+            <text  class="shop">{{shopname}}</text>
+        </view>
+    </view>
+    <!-- <view class="discount_coupon" bindtap="openMarkCoupon">
+        <view class="disct_info">
+            <view>
+                <text>券</text>
+                优惠券
+            </view>
+            <view wx:if="{{curSelectCoupon != -1 && curSelectCoupon!=0}}" bindtap="openMarkCoupon">
+                满{{curSelectCoupon.full_price}}减{{curSelectCoupon.price}}
+                <image src="../images/right_10.png"></image>
+            </view>
+            <view wx:if="{{curSelectCoupon == -1}}" bindtap="openMarkCoupon">
+                点击选择优惠券
+                <image src="../images/right_10.png"></image>
+            </view>
+            <view wx:if="{{curSelectCoupon == 0}}" bindtap="openMarkCoupon">
+                此金额没有可用优惠券
+                <image src="../images/right_10.png"></image>
+            </view>
+        </view>
+    </view> -->
+    <view class="pay_methods">
+        <view class="pay_title">支付方式</view>
+        <view class="pay_check">
+            <view class="pay_check_part {{tab==1?'pay_active':''}}" data-tab="1" bindtap='tabChange'>
+                <image src="../images/pya_10.png"></image>
+                <text>余额支付</text>
+            </view>
+            <view class="pay_check_part {{tab==2?'pay_active':''}}" data-tab="2" bindtap="tabChange">
+                <image src="../images/pya_07.png"></image>
+                <text>微信支付</text>
+            </view>
+        </view>
+    </view>
+    <view class="advertimets">
+        <!-- <image src="../images/pocket_02.png"></image> -->
+    </view>
+    <view class="pay_bottom">
+        <view class="pay_price">
+            <text wx:if='{{price}}'>¥</text>
+            {{price}}
+        </view>
+        <view class="pay_btn" bindtap='pay'>确认支付</view>
+    </view>
+</view>
+<!-- 充值弹窗 -->
+<view class='charge_container' wx:if="{{chargeflag}}">
+    <view class='charge_content'>
+        <view class="tel_title">
+            余额不足
+            <text bindtap='showCharge'>×</text>
+        </view>
+        <view class='select_num'>
+            <span class="num_part {{index==idx?'active':''}}" bindtap="getMoney" data-money="{{item.recharge_price/100}}" wx:for="{{rechargeConf}}" data-index="{{index}}">
+                {{item.recharge_price/100}}送{{item.largess_price/100}}
+            </span>
+        </view>
+        <view class='ipt_num'>
+            <text>其他金额</text>
+            <input class="tel" adjust-position='true' value='{{iptvalue}}' cursor-spacing="10" type="number" maxlength="11" placeholder="请输入金额" placeholder-style="color:#999;" bindinput='changeValue' />
+        </view>
+        <view class='tips' style="text-align:right;">*其他金额不参与满送活动</view>
+        <view class="btn_container">
+            <view class='cancel_btn' bindtap='showCharge'>取消</view>
+            <view class='ensure' bindtap='gocharge'>确认充值</view>
+        </view>
+    </view>
+</view>

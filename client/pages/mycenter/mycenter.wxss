@@ -1,0 +1,231 @@
+/* pages/mycenter/mycenter.wxss */
+.container {
+  position: relative;
+}
+.top {
+  width: 80%;
+  height: 200rpx;
+  background: url('../images/7my_02.jpg');
+  background-size: cover;
+  background: #f4823e;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10%;
+}
+.top image {
+  width: 136rpx;
+  height: 136rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.top .preson_infomation {
+  color: #fff;
+  font-size: 30rpx;
+}
+.top .preson_infomation .num {
+  margin-top: 10rpx;
+}
+.top .preson_infomation .sign{
+  display: inline-block;
+  text-align: center;
+  width: 150rpx;
+  height: 36rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background: #ff2b4d;
+  border-radius: 36rpx;
+}
+.top .preson_infomation .sign.signed{
+  background: #eee;
+  color: #999;
+}
+.top .preson_infomation .num text:first-of-type {
+  border-right: 1rpx solid #fff;
+  padding-right: 30rpx;
+  margin-right: 30rpx;
+}
+.insert_img {
+  width: 100%;
+}
+.prop {
+  display: block;
+  width: 100%;
+  height: 68rpx;
+}
+
+.getcode2{
+  background: #ff6b12 !important;
+}
+.my_list {
+  width: 100%;
+  border-bottom: 20rpx solid #f5f5f9;
+}
+.my_list navigator,.my_list .cortlTel {
+  width: 95%;
+  height: 92rpx;
+  line-height: 92rpx;
+  margin-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ccc;
+}
+.cortlTel:last-of-type {
+  border: none;
+}
+
+.my_list navigator .list_part,.my_list .cortlTel .list_part{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.my_list .list_part:last-of-type {
+  border: none;
+}
+.my_list .list_part text {
+  color: #333333;
+  font-size: 28rpx;
+}
+.my_list .list_part image {
+  width: 15rpx;
+  height: 30rpx;
+}
+.bottom_box {
+  width: 100%;
+  height: 290rpx;
+}
+.bottom_box image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.telephone_container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+}
+.telephone_container .telephone {
+  width: 92%;
+  height: 545rpx;
+  position: absolute;
+  background: #fff;
+  top: 0;
+  left: 0;
+  bottom:134rpx;
+  right: 0;
+  margin: auto;
+  border-radius: 5rpx;
+}
+.telephone_container .telephone .tel_title {
+  width: 97%;
+  margin: 0 auto;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  position: relative;
+  border-bottom: 1rpx solid #ddd;
+  margin-bottom: 40rpx;
+}
+.telephone_container .telephone .tel_title text {
+  position: absolute;
+  top: 15%;
+  right: 10rpx;
+  color: #888;
+  font-size: 40rpx;
+}
+.telephone_container .telephone .tel {
+  width: 85%;
+  height: 84rpx ;
+  padding-left: 10rpx;
+  margin:30rpx auto;
+  color: #333;
+  font-size: 24rpx;
+  border: 1rpx solid #666;
+  -webkit-border-radius: 5rpx;
+  -moz-border-radius: 5rpx;
+  border-radius: 5rpx;
+  box-sizing: border-box;
+}
+.telephone_container .telephone .code_container{
+  border: none;
+  width:85%;
+height:84rpx;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 40rpx auto;
+}
+.telephone_container .telephone .code_container input{
+  width: 367rpx;
+  height: 100%;
+  border: 1rpx solid #666;
+  padding-left: 10rpx;
+  border-radius: 5rpx;
+   color: #333;
+  font-size: 24rpx;
+  box-sizing: border-box;
+}
+.telephone_container .telephone .code_container view{
+  width: 195rpx;
+  height: 100%;
+  line-height: 84rpx;
+  background: #42adae;
+  text-align: center;
+  border-radius: 5rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.telephone_container .telephone .ensure{
+    width:85%;
+    height:80rpx;
+    margin: 0 auto;
+    background: #42adae;
+    font-size: 30rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 5rpx;
+}
+.telephone_container .telephone .active{
+  width:85%;
+  height:80rpx;
+  margin: 0 auto;
+  background: #ff6b12 !important;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 5rpx;
+}
+.key_container{
+  display: block;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mask .content{
+  width:95%;
+  height:50%; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display:inline-block;
+  background-color: #fff;
+}

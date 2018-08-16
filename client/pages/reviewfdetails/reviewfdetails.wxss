@@ -1,0 +1,11 @@
+/* pages/reviewfdetails/reviewfdetails.wxss */
+.details_container{
+  width: 100%;
+  padding: 10rpx 4%;
+  box-sizing: border-box;
+  border-top: 1rpx solid #ddd;
+  padding-top: 20rpx;
+}
+.details_container .container{
+  border: none;
+}

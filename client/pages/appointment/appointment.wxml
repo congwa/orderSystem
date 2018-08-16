@@ -1,0 +1,71 @@
+<!-- pages/appointment/appointment.wxml -->
+<!-- 时间选择器 -->
+<!-- <view class="mask" hidden="{{!dateSelectHidden}}">
+    <view class="date-select">
+        <view class="title">
+            <view class="cancel" bindtap="cancleMaskDateSelect">取消</view>
+            <view>{{month}}月{{day}}日{{hour}}时{{minute}}分</view>
+            <view class="enter" bindtap="enterMaskDateSelect">确认</view>
+        </view>
+        <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+             <picker-view-column>
+                <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+            </picker-view-column> 
+            <picker-view-column>
+                <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{hours}}" style="line-height: 50px">{{item}}时</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{minutes}}" style="line-height: 50px">{{item}}分</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</view> -->
+<view class="container">
+    <view class="appoint_center">
+        <view class="dinner">
+           
+            <view class="min_part" bindtap="showMaskDateSelect">
+                <text>用餐日期</text>
+                <picker mode="date" value="{{date}}" start="{{date}}" end="{{endDate}}" bindchange="bindDateChange">
+                    <view class="picker"> {{date}}</view>
+                </picker>
+                <image src="../images/down_06.jpg"></image>
+            </view>
+            <view class="min_part" bindtap="showMaskDateSelect">
+                <text>用餐时间</text>
+                <picker mode="time" value="{{time}}" start="{{time}}" end="{{endTime}}" bindchange="bindTimeChange">
+                    <view class="picker">{{time}}</view>
+                </picker>
+                <image src="../images/down_06.jpg"></image>
+            </view>
+        </view>
+        <view class="dinner customer_info">
+            <view class="min_part">
+                <text>联系人</text>
+                <input maxlength="10" placeholder="请输入姓名" type="text" adjust-position="true" bindconfirm="mealSurnameChange" bindinput="mealSurnameChange" />
+            </view>
+             <view class="min_part">
+                <text>就餐人数</text>
+                <input maxlength="10" type="number" placeholder="请输入用餐人数" adjust-position="true" bindinput="bindinputnumber" />
+            </view>
+            <view class="min_part">
+                <text>联系电话</text>
+                <input maxlength="11" type="number" type='number' bindinput="mealIphoneChange" bindconfirm="mealIphoneChange" bindblur='pattern' />
+            </view>
+            <view class="min_part">
+               <text>备注</text>
+                <textarea placeholder="请输入备注" style="{{showbak ? 'display:none' : ''}};" placeholder-style="color:#999;" bindconfirm="mealDescChange" bindinput="mealDescChange" />
+            </view>
+        </view>
+        <view class="appoint_btn">
+            <button class="order_only" bindtap="setTable">只订桌</button>
+            <button class="order_advance" bindtap='appointmentOrderFood'>提前点餐</button>
+        </view>
+    </view>
+</view>

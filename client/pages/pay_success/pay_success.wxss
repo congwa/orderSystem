@@ -1,0 +1,31 @@
+/* pages/pay_success/pay_success.wxss */
+@import '../../style/weui.wxss';
+
+.container icon{
+margin-top:136rpx;
+}
+.tip_txt{
+  color: #888888;
+  font-size: 42rpx;
+  text-align:center ;
+  margin-top: 50rpx;
+}
+.tip_sum{
+    color: #333;
+  font-size: 80rpx;
+  text-align:center ;
+  font-weight: bold;
+  margin-top: 50rpx;
+}
+ .ensure{
+    width:85%;
+    height:80rpx;
+    margin: 0 auto;
+    background: #ff6b12;
+    font-size: 30rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 5rpx;
+    margin-top:160rpx;
+}

@@ -1,0 +1,227 @@
+<view class="empty_container" wx:if="{{indentData.length==0}}">
+    <view class="empty">
+        <image src='../images/empty1.png'></image>
+        <text style="font-size:20rpx">您还没有相关订单</text>
+    </view>
+</view>
+<view class="container">
+    <!-- <button  bindtap='refundMoney'>申请退款</button> -->
+    <scroll-view class="scroll-view_H" scroll-y style="height: {{conHeight}}rpx;" bindscrolltolower='loadMore'>
+        <view class="scroll_container" id="scroll_container">
+            <!-- 空订单提示 -->
+            <view class="empty" wx:if="{{emptyflag}}">
+                <image class="empty_img" src="../images/empty1.png"></image>
+                <text class="empty_text">您还没有相关订单</text>
+            </view>
+            <!-- 待支付 -->
+            <view class="order_part" wx:for="{{indentData}}">
+                <view class="shop_phone weui-btn-area" type="default" data-tel="{{item.iphones}}" bindtap='open'>
+                    <image src="../images/order_03.png"></image>
+                    商家电话
+                </view>
+                <view class="restaurant">
+                    <image src="{{URL.PROJECT_ROOT+item.logo}}"></image>
+                    <view class="restaurant_name">
+                        <text>{{item.title}}</text>
+                        <text>订单：{{item.order_number}}</text>
+                    </view>
+                    <view class="status">
+                        <block>
+                            <text wx:if="{{item.type==4}}">预约</text>
+                            <text wx:if="{{item.type==3}}">点餐</text>
+                            <text wx:if="{{item.type==1}}">订桌</text>
+                            <text wx:if="{{item.type==2}}">付款</text>
+                        </block>
+                        <block>
+                            <!-- 只订桌不须支付,还未取消，可以申请取消 -->
+                            <view class="refund" bindtap='showcancelTable' wx:if="{{item.type==1&&item.pay_status==2&&item.status!=3&&item.isRefund}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                取消
+                            </view>
+                            <!-- 只订桌不须支付,还未取消，可以申请取消 -->
+                            <!-- <view class="refund" bindtap='showcancelTable' wx:if="{{item.type==1&&item.pay_status==2&&item.status!=3&&!item.isRefund}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                时间将近，不可取消
+                            </view> -->
+                            <!-- 只订桌不须支付,已取消 -->
+                            <view class="refund" wx:if="{{item.type==1&&item.pay_status==2&&item.status==3}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                已取消
+                            </view>
+                            <!-- 预约或点餐，去支付 -->
+                            <view bindtap='toPay' wx:if="{{(item.type==4||item.type==3||item.type==2)&&item.pay_status==2&&!item.topay}}" data-status="{{item.pay_status}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                去支付
+                            </view>
+                            <!-- 订单关闭 ，不能支付 -->
+                            <view bindtap='toPay' wx:if="{{(item.type==4||item.type==3||item.type==2)&&item.pay_status==2&&item.topay==1}}" data-status="{{item.pay_status}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                已关闭
+                            </view>
+                            <!-- 提前点餐，已经支付，待接单，3小时外，可以退款 -->
+                            <view class="refund" bindtap='refundMoney' wx:if="{{item.type==4&&item.pay_status==1&&item.status==1&&item.reimburse==1&&item.isRefund}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}' data-tit="{{item.title}}" data-price='{{item.pay_price/100}}'>
+                                申请退款
+                            </view>
+                            <!-- 提前点餐，已经支付，9商家退款审核中 -->
+                            <view class="refund" bindtap='' wx:if="{{item.type==4&&item.pay_status==1&&item.status==9&&item.reimburse==1}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                商家审核中
+                            </view>
+                            <!-- 提前点餐，已经支付，10商家退款失败 -->
+                            <view class="refund" bindtap='' wx:if="{{item.type==4&&item.pay_status==1&&item.status==10&&item.reimburse==1}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                商家退款失败
+                            </view>
+                            <!-- 提前点餐，已经支付，11 平台退款审核中 -->
+                            <view class="refund" bindtap='' wx:if="{{item.type==4&&item.pay_status==1&&item.status==11&&item.reimburse==1}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                平台审核中
+                            </view>
+                            <!-- 提前点餐，已经支付，12 平台退款审核中 -->
+                            <view class="refund" bindtap='' wx:if="{{item.type==4&&item.pay_status==1&&item.status==12&&item.reimburse==1}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                平台退款失败
+                            </view>
+                            <!-- 预约或点餐，已经支付，已经完成，可以评价 -->
+                            <view class="goEvaluate" bindtap='goReview' wx:if="{{(item.type==4||item.type==3)&&item.status==2&&item.is_evaluate==2}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                去评价
+                            </view>
+                            <!-- 预约或点餐，已经支付，已经完成，评价状态为1,已经评价 -->
+                            <view class="refund" bindtap='' wx:if="{{(item.type==4||item.type==3)&&item.status==2&&item.is_evaluate==1}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                已评价
+                            </view>
+                            <!-- 付款买单，显示已经完成 -->
+                            <view class="goEvaluate" bindtap='goReview' wx:if="{{item.type==2&&item.pay_status==1}}" data-ordernum='{{item.order_number}}' data-shopid='{{item.league_id}}'>
+                                已完成
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                <view class="order_sheet" wx:for='{{item.league_orders_goods}}' wx:for-item="v">
+                    <view class="order_sheet_part">
+                        <image src="{{URL.PROJECT_ROOT+v.goods_thumb}}"></image>
+                        <view class="foods_name">
+                            <text>{{v.goods_name}}</text>
+                            <text>×{{v.goods_amount}}</text>
+                        </view>
+                        <text class="price">¥{{v.goods_price/100}}</text>
+                    </view>
+                    <!-- <view class="order_sheet_part">
+                 <image src="../images/order_11.png"></image>
+                 <view class="foods_name">
+                     <text>宫保鸡丁</text>
+                     <text>×1</text>
+                 </view>
+                 <text class="price">¥88</text>
+             </view>
+             <view class="order_sheet_part">
+                 <image src="../images/order_11.png"></image>
+                 <view class="foods_name">
+                     <text>宫保鸡丁</text>
+                     <text>×1</text>
+                 </view>
+                 <text class="price">¥88</text>
+             </view> -->
+                </view>
+                <block wx:if="{{item.type==2||item.type==3||item.type==4}}">
+                    <view class="discounts">
+                        <view class="disct_info" wx:if='{{item.rebate/100!=0}}'>
+                            <view>
+                                <text>减</text>
+                                满减优惠
+                            </view>
+                            <view>-{{item.rebate/100}}</view>
+                        </view>
+                        <view class="disct_info" wx:if='{{item.coupon_price/100!=0}}'>
+                            <view>
+                                <text>券</text>
+                                代金券
+                            </view>
+                            <view>-{{item.coupon_price/100}}</view>
+                        </view>
+                    </view>
+                    <view class="sum_price">
+                        <span class="cheap" wx:if='{{(item. rebate+item.coupon_price)/100!=0}}'>
+                            已优惠¥{{(item. rebate+item.coupon_price)/100}}
+                        </span>
+                        <view class="sum">
+                            合计
+                            <text>¥{{item.pay_price/100}}</text>
+                        </view>
+                    </view>
+                </block>
+                <view class="pay_infomation">
+                    <view class="pay_part" wx:if="{{item.type!=1}}">
+                        <text>支付状态</text>
+                        <block>
+                            <text class="pay_status" wx:if="{{item.pay_status==2}}">未支付</text>
+                            <text class="pay_status" wx:if="{{item.pay_status==1&&item.status!=9}}">
+                                已支付
+                            </text>
+                            <text class="pay_status" wx:if="{{item.pay_status==3}}">已关闭</text>
+                            <text class="pay_status" wx:if="{{item.status==9&&item.pay_status==1}}">
+                                已退款
+                            </text>
+                        </block>
+                    </view>
+                    <block wx:if='{{item.expand!=0}}'>
+                        <view class="pay_part">
+                            <text>用餐人数</text>
+                            <text>{{item.expand.number}}人</text>
+                        </view>
+                        <view class="pay_part">
+                            <text>用餐时间</text>
+                            <text>{{item.expand.addtime}}</text>
+                        </view>
+                    </block>
+                    <view class="pay_part">
+                        <text>下单时间</text>
+                        <text>{{item.create_time}}</text>
+                    </view>
+                </view>
+                <view class="pay_infomation customer">
+                    <view class="pay_part customer_part" wx:if='{{item.expand!=0}}'>
+                        <text>姓名</text>
+                        <text>{{item.expand.uname}}</text>
+                    </view>
+                    <view class="pay_part" wx:if='{{item.expand!=0}}'>
+                        <text>电话</text>
+                        <text>{{item.expand.iphone}}</text>
+                    </view>
+                    <view class="pay_part remark" wx:if='{{item.remarks}}'>
+                        <text>备注</text>
+                        <text>{{item.remarks}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="cancel_table_container" wx:if="{{cancelflag}}">
+                <view class="cancel_table">
+                    <view class="cancel_title">
+                        取消订桌
+                        <text bindtap='giveupTable'>×</text>
+                    </view>
+                    <view class="code_container">
+                        <text class="can_tit">您是否要取消</text>
+                        <textarea name="" id="" cols="30" rows="10" placeholder="请输入原因" maxlength='100' bindinput='changeText'></textarea>
+                    </view>
+                    <view class="btn_container">
+                        <view class='cancel_btn' bindtap='cancelTable' data-ordernum='{{cancleOrdernum}}' data-text="{{reasion}}">
+                            取消订桌
+                        </view>
+                        <view class='ensure' bindtap='giveupTable'>放弃</view>
+                    </view>
+                </view>
+            </view>
+            <view class="cancel_table_container refund_container" wx:if="{{refundflag}}">
+                <view class="cancel_table">
+                    <view class="cancel_title">
+                        申请退款
+                        <text bindtap='closerefundMoney'>×</text>
+                    </view>
+                    <view class="code_container">
+                        <view class="refund_title">
+                            <text>{{refundTitle}}</text>
+                            <text>金额¥{{refundPrice}}</text>
+                        </view>
+                        <textarea name="" id="" cols="30" rows="10" placeholder="请输入原因" bindinput='changeText'></textarea>
+                    </view>
+                    <view class="btn_container">
+                        <view class='cancel_btn' bindtap='getRefun'>申请退款</view>
+                        <view class='ensure' bindtap='closerefundMoney'>取消</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

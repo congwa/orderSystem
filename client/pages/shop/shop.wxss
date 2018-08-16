@@ -1,0 +1,176 @@
+.container {
+  background: #f5f5f9;
+}
+swiper{
+  width: 100%;
+
+}
+swiper swiper-item image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.banner {
+  width: 100%;
+  height: 200rpx;
+}
+.iconlist {
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #fff;
+}
+.iconlist .icon_part {
+  width: 96rpx;
+  height: 137rpx;
+  margin: 0;
+}
+.iconlist .icon_part image {
+  width: 100%;
+  height: 95rpx;
+}
+.iconlist .icon_part text {
+  font-size: 24rpx;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+.menu {
+  width: 100%;
+  height: 336rpx;
+  margin-top: 20rpx;
+  background: #fff;
+}
+.menu .menu_title {
+  width: 90%;
+  margin: 0 auto;
+  height: 74rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu .menu_title .menu_title_left text {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+}
+.menu .menu_title .menu_title_left image {
+  width: 24rpx;
+  height: 22rpx;
+  margin-left: 10rpx;
+}
+.menu .menu_title .menu_title_right {
+  width: 92rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu .menu_title .menu_title_right text {
+  font-size: 24rpx;
+  color: #888888;
+}
+.menu .menu_title .menu_title_right image {
+  width: 25rpx;
+  height: 25rpx;
+}
+.menu .foodlists {
+  width: 100%;
+  height: 263rpx;
+  padding: 10rpx  0;
+}
+.menu .foodlists swiper-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.menu .foodlists swiper-item view {
+  width: 177rpx;
+  height: 243rpx; 
+}
+.menu .foodlists swiper-item view image {
+  display: block;
+  width: 100%;
+  height: 177rpx;
+  border-radius: 5rpx;
+}
+.menu .foodlists swiper-item view text {
+  font-size: 24rpx;
+  color: #333333;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.shop_infomation {
+  margin-top: 20rpx;
+  background: #fff;
+  height: auto;
+}
+.shop_infomation .menu_title .menu_title_left image {
+  width: 67rpx;
+  height: 22rpx;
+  margin-left:10rpx; 
+}
+.shop_infomation .shop_infoList {
+  width: 95%;
+  padding-left: 5%;
+}
+.shop_infomation .shop_infoList view {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #dddddd;
+}
+.shop_infomation .shop_infoList view image {
+  width: 25rpx;
+  height: 25rpx;
+  margin-right:20rpx;
+}
+.shop_infomation .shop_infoList view text {
+  color: #333333;
+  font-size: 26rpx;
+}
+.shop_infomation .shop_infoList view:last-of-type {
+  border: none;
+  margin: 0;
+}
+.cheap {
+  width: 95%;
+  padding-left: 5%;
+  margin-top: 20rpx;
+  background: #fff;
+}
+.cheap view {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #dddddd;
+}
+.cheap view .cheap_icon{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  /* line-height: 30rpx;
+  text-align: center; */
+  border-radius: 50%;
+  background: #ff6b12;
+  color: #fff;
+  font-size: 22rpx;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+line-height:20rpx;
+
+}
+.cheap view text{
+  font-size: 26rpx;
+  color: #333333;
+  margin-left: 15rpx;
+}

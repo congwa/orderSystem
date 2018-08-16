@@ -1,0 +1,115 @@
+.container {
+  width: 100%;
+  padding: 2%;
+  padding-bottom: 0;
+  background: #f5f5f9;
+}
+.appoint_center {
+  width: 100%;
+  padding: 30rpx 2%;
+  background: #fff;
+}
+.appoint_center .dinner {
+  width: 100%;
+  border-bottom: 1rpx dashed #ddd;
+  padding: 20rpx 0 0;
+}
+.appoint_center .dinner .min_part {
+  border: 1rpx solid #ddd;
+  height: 80rpx;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5rpx;
+  margin-bottom: 30rpx;
+}
+.appoint_center .dinner .min_part text {
+  color: #888;
+  font-size: 30rpx;
+}
+.appoint_center .dinner .min_part input {
+  width: 500rpx;
+  font-size: 30rpx;
+}
+.appoint_center .dinner .min_part image {
+  width: 18rpx;
+  height: 10rpx;
+}
+.appoint_center .dinner .min_part:last-of-type {
+  margin-top: 20rpx;
+}
+.appoint_center .customer_info {
+  border: none;
+  padding-top: 30rpx;
+}
+.appoint_center .customer_info .min_part:last-of-type {
+  height: auto;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.appoint_center .customer_info .min_part:last-of-type textarea {
+  height: 230rpx;
+  color: #333;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+}
+.appoint_center .customer_info .sex {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  border: none;
+  margin-bottom: 10rpx;
+  margin-top: -20rpx;
+}
+.appoint_center .customer_info .sex text {
+  color: #333;
+}
+.appoint_center .customer_info .sex .radio-group {
+  width: 500rpx;
+  margin: 20rpx 0;
+  color: #333;
+}
+.appoint_center .customer_info .sex .radio-group label {
+  margin-right: 100rpx;
+}
+.appoint_center .appoint_btn {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 37rpx;
+  left: 0;
+}
+.appoint_center .appoint_btn button {
+  width: 336rpx;
+  height: 80rpx;
+  border: none;
+  color: #fff;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+.appoint_center .appoint_btn .order_only {
+  background: #47cacc;
+}
+.appoint_center .appoint_btn .order_advance {
+  background: #ff6b12;
+}
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+}
+.mask .date-select {
+  position: absolute;
+  bottom: 0rpx;
+  background: #fff;
+  width: 100%;
+}
+.mask .date-select .title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,100 @@
+<!--pages/review/review.wxml-->
+<view class="container">
+    <view class="store_info">
+      <image src="../images/write_comment_03.png"></image>
+     <view class="carteen">
+         <text>紫曙光餐厅</text>
+         <view class="score">
+             <text>总体评分</text>
+             <view>
+                 <image src="../images/comment_06.png"></image>
+                 <image src="../images/comment_06.png"></image>
+                 <image src="../images/comment_06.png"></image>
+                 <image src="../images/comment_06.png"></image>
+                 <image src="../images/comment_06.png"></image>
+
+             </view>
+             <text>非常好</text>
+         </view>
+     </view>
+
+  </view>
+    <view class="review_text">
+        <textarea placeholder="宝贝满足你的期待吗？请您分享一下您的用餐心得，给其他的顾客一些参考吧，谢谢了！" placeholder-style="color:#999;" bindinput='changeText' ></textarea>
+        <text>最多输入100字</text>
+    </view>
+    <!--上传图片-->
+    <view class="upload_contain">
+        <view class="upload_pic">
+            <view class="upload_btn" bindtap='selectImage'>
+                <image src="../images/write_comment_07.png"></image>
+            </view>
+            <view class="tip_text">
+                <text>上传图片</text>
+                <text>最多上传9张图片</text>
+            </view>
+        </view>
+        <!--图片复现的容器-->
+        <view class="show_pic">
+          <image
+            wx:for="{{previewSrcs}}" 
+            wx:key="*this"
+            src="{{PROJECT_ROOT+item}}"
+            style="width:100rpx;height:100rpx"></image>
+        </view>
+    </view>
+    <!--店铺评分-->
+    <view class="store_grade">
+        <view class="store_title">
+            <image src="../images/write_comment_10.png"></image>
+            <text>店铺评分</text>
+        </view>
+        <view class="store_grade_level">
+            <view class="taste">
+                <text>口味</text>
+                <view class="faces">
+                     <multiple-rate rate="{{taste}}" bindchange="tasteHandleChange">
+                        <!-- <text style='margin-left:20px;'>{{ taste }}分</text> -->
+                    </multiple-rate>
+                    <!-- <image src="../images/write_comment_14.png"></image>
+                    <image src="../images/write_comment_14.png"></image>
+                    <image src="../images/write_comment_14.png"></image>
+                    <image src="../images/write_comment_14.png"></image>
+                    <image src="../images/write_comment_18.png"></image> -->
+                </view>
+                <text>{{font_score[taste]}}</text>
+            </view>
+            <view class="taste">
+                <text>环境</text>
+                <view class="faces">
+                    <multiple-rate rate="{{environment}}" bindchange="environmentHandleChange">
+                            <!-- <text style='margin-left:20px;'>{{ environment }}分</text> -->
+                    </multiple-rate>
+                    <!-- <image src="../images/write_comment_14.png"></image>
+                    <image src="../images/write_comment_14.png"></image>
+                    <image src="../images/write_comment_14.png"></image>
+                    <image src="../images/write_comment_14.png"></image>
+                    <image src="../images/write_comment_14.png"></image> -->
+                </view>
+                <text>{{font_score[environment]}}</text>
+            </view>
+            <view class="taste">
+                <text>服务</text>
+                <view class="faces">
+                    <multiple-rate rate="{{service}}" bindchange="serviceHandleChange">
+                        <!-- <text style='margin-left:20px;'>{{ service }}分</text> -->
+                    </multiple-rate>
+                    <!-- <image src="../images/write_comment_18.png"></image>
+                    <image src="../images/write_comment_18.png"></image>
+                    <image src="../images/write_comment_18.png"></image>
+                    <image src="../images/write_comment_18.png"></image>
+                    <image src="../images/write_comment_18.png"></image> -->
+                </view>
+                <text>{{font_score[service]}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="issue" bindtap="clickIssue">
+        <view class="issue_btn">发布</view>
+    </view>
+</view>

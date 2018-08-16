@@ -1,0 +1,100 @@
+<view class="page__bd">
+    <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                    <icon type="clear" size="14"></icon>
+                </view>
+            </view>
+            <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                <icon class="weui-icon-search" type="search" size="14"></icon>
+                <view class="weui-search-bar__text">搜索</view>
+            </label>
+        </view>
+        <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">
+            取消
+        </view>
+    </view>
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+        <!-- <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator> -->
+    </view>
+</view>
+<!-- 历史热门城市 -->
+<view class="searchLetter touchClass">
+    <view class="thishotText" bindtap="hotCity">
+        <view style="margin-top:0;">历史</view>
+        <view style="margin-top:0;">热门</view>
+    </view>
+    <view wx:for="{{searchLetter}}" style="color:#2ab4ff;font-size:20rpx;" wx:key="index" data-letter="{{item.name}}" catchtouchend="clickLetter">
+        {{item.name}}
+    </view>
+</view>
+<block wx:if="{{isShowLetter}}">
+    <view class="showSlectedLetter">{{showLetter}}</view>
+</block>
+
+<!-- 历史选择城市 -->
+<scroll-view scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" scroll-into-view="{{scrollTopId}}" scroll-top="{{scrollTop}}">
+    <!-- 搜索选择城市 -->
+    <ul class="ul">
+        <li wx:for="{{completeList}}" wx:key="*this" bindtap="bindCity" data-city="{{item.city}}" data-citycode="{{item.code}}" class="li">{{item.city}}</li>
+    </ul>
+
+    <!-- 当前选择城市 -->
+    <!-- <view class="hotcity-common thisCity">当前选择城市</view>
+  <view class="thisCityName">{{city}}</view> -->
+    <view class="curCity">
+        <image class="my-cur-img" src="../images/position_03.png"></image>
+        <text class="my-curCity">{{city}}</text>
+        <text class="my-curCity-state">GPS定位</text>
+    </view>
+    <!-- 历史选择城市 -->
+    <view>
+        <text class="hotcity hotcity-common">历史选择城市</text>
+        <view class="weui-grids">
+            <block wx:for-items="{{hotcityList}}" wx:key="{{index}}">
+                <view class="weui-grid" data-cityCode="{{item.cityCode}}" data-city="{{item.city}}" bindtap="bindHotCity">
+                    <view class="weui-grid__label">{{item.city}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <!-- 国内热门城市 -->
+    <view>
+        <text class="hotcity hotcity-common">国内热门城市</text>
+        <view class="weui-grids">
+            <block wx:for-items="{{hotcityList}}" wx:key="{{index}}">
+                <view class="weui-grid" data-cityCode="{{item.cityCode}}" data-city="{{item.city}}" bindtap="bindHotCity">
+                    <view class="weui-grid__label">{{item.city}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
+        <view class="item_letter" id="{{item.initial}}">{{item.initial}}</view>
+        <view class="item_city" wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.id}}" data-cityCode="{{ct.code}}" data-city="{{ct.city}}" bindtap="bindCity">
+            {{ct.city}}
+        </view>
+    </view>
+</scroll-view>

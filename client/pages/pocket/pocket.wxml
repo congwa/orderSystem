@@ -1,0 +1,48 @@
+<!--pages/pocket/pocket.wxml-->
+<view class="container">
+     <!-- <view class="ad_img">
+       <image src="../images/pocket_02.png"></image>
+    </view> -->
+    <view class="recharge">
+        <image src="../images/pocket_03.png"></image>
+        <view class="sum">
+            <view class="sum_num">余额：<text>{{amount}}</text></view>
+            <view class="charge_btn" bindtap='showCharge'>充值</view>
+        </view>
+    </view>
+    <view class="deal_details_title">交易明细</view>
+    <view class="deal_details_container">
+        <view class="deal_details" wx:for="{{list}}" wx:key="*this">
+            <view class="deal_details_left">
+               <text>{{item.content}}</text>
+                <text>{{item.create_time}}</text>
+            </view>
+            <view class="deal_details_right">
+                <text wx:if="{{item.type==2}}">-</text><text wx:if="{{item.type==1}}">+</text>¥<text>{{item.pay_price}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class='charge_container' wx:if="{{chargeflag}}">
+<!-- <view class='charge_container'> -->
+  <view class='charge_content'>
+    <view class="tel_title">充值
+      <text bindtap='showCharge'>×</text>
+    </view>
+    <view class='select_num' >
+      <text bindtap="getMoney" data-money="{{item.recharge_price/100}}" wx:for="{{rechargeConf}}" data-index="{{index}}" class="{{index==idx?'active':''}}">{{item.recharge_price/100}}送{{item.largess_price/100}}</text>
+      <!-- <text class='active'>200送20</text> -->
+      <!-- <text>500送50</text>
+      <text>1000送110</text> -->
+    </view>
+    <view class='ipt_num'>
+      <text>其他金额</text>
+      <input class="tel" adjust-position='true' value='{{iptvalue}}' cursor-spacing="10" type="number" maxlength="11" placeholder="请输入金额" placeholder-style="color:#999;" bindinput='changeValue'/>    
+    </view>
+     <view class='tips' style="text-align:right;">*其他金额不参与满送活动</view>
+    <view class="btn_container">
+      <view class='cancel_btn' bindtap='showCharge'>取消</view>
+      <view class='ensure' bindtap='gocharge'>确认充值</view>
+    </view>
+  </view>
+</view>

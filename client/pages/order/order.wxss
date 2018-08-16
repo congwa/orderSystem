@@ -1,0 +1,657 @@
+view {
+  width: 100%;
+  padding: 0rpx 0rpx;
+  margin: 0rpx 0rpx;
+  font-size: 0rpx;
+}
+
+/*抛物线动画*/
+
+.good_box {
+  width: 18px;
+  height: 18px;
+  position: fixed;
+  border-radius: 50%;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  z-index: +99;
+  background: #ff6b12;
+}
+
+.container .title {
+  width: 92%;
+  background: url("http://wangcong.fun/images/car1_02.jpg") no-repeat;
+  background-size: 100% 100%;
+  padding: 20rpx 4% 0;
+  height: 230rpx;
+}
+
+.container .title .sign {
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.container .title .des {
+  font-size: 24rpx;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.container .title .des .img_con {
+  width: 172rpx;
+  height: 172rpx;
+  border-radius: 5rpx;
+}
+
+.container .title .des .text_con {
+  width: 495rpx;
+}
+
+.container .title .des .text_con .text {
+  font-size: 24rpx;
+  display: block;
+  line-height: 53rpx;
+}
+
+.container .title .des .text_con .text:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .title .des .text_con .text:first-of-type .weui-btn-area {
+  display: inline-block;
+  width: 48rpx;
+  height: 29rpx;
+  border-left: 1rpx solid #fff;
+}
+
+.container .title .des .text_con .text .open_time {
+  font-size: 26rpx;
+}
+
+.container .title .des .text_con .text:first-of-type view .sign_btn {
+  width: 22rpx;
+  height: 31rpx;
+  margin-left: 15rpx;
+}
+
+.container .title .des .text_con .text:last-of-type {
+  width: 100%;
+  height: 55rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.container .coupon {
+  width: 92%;
+  padding: 30rpx 4% 20rpx;
+  font-size: 24rpx;
+  color: #888;
+  line-height: 26rpx;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.container .coupon .ticket {
+  width: 30rpx;
+  height: 30rpx;
+  background: #ff6b12;
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 28rpx;
+  text-align: center;
+  border-radius: 30rpx;
+  margin-right: 10rpx;
+}
+
+.container .body .b_title {
+  height: 66rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid;
+  border-color: #ddd;
+  box-sizing: border-box;
+}
+
+.container .body .b_title .order {
+  display: inline-block;
+  text-align: center;
+  font-size: 26rpx;
+  color: #ff6b12;
+}
+
+.container .body .b_title .comment {
+  display: inline-block;
+  text-align: center;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.container .body .b_title .com {
+  display: inline-block;
+  height: 100%;
+  line-height: 66rpx;
+  font-size: 30rpx;
+  width: auto;
+  padding-bottom: 5rpx;
+  box-sizing: border-box;
+}
+
+.container .body .b_title .active {
+  color: #ff6b12;
+  position: relative;
+}
+
+.container .body .b_title .active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -5rpx;
+  bottom: 0;
+  width: 70rpx;
+  height: 2rpx;
+  background: #ff6b12;
+}
+
+.container .body .o_con {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.container .body .o_con .o-center {
+  height: auto;
+  font-size: 24rpx;
+  display: flex;
+}
+
+.container .body .o_con .o-center .left {
+  width: 166rpx;
+}
+
+.container .body .o_con .o-center .left .tab {
+  height: 108rpx;
+  width: 166rpx;
+  color: #333;
+  text-align: center;
+  line-height: 108rpx;
+  font-size: 26rpx;
+  background-color: #f5f5f9;
+  border-top: 1rpx solid;
+  border-color: #ddd;
+  display: block;
+}
+
+.container .body .o_con .o-center .left .tab:first-of-type {
+  border-top: none;
+}
+
+.container .body .o_con .o-center .left .active {
+  color: #ff6b12;
+  background-color: #fff;
+  font-size: 30rpx;
+}
+
+.container .body .o_con .o-center .right .scr {
+  height: 100%;
+}
+
+.container .body .o_con .o-center .right .right_tab {
+  margin-left: 20rpx;
+  position: relative;
+}
+
+.container .body .o_con .o-center .right .right_tab .des_type {
+  color: #666;
+  font-size: 24rpx;
+  line-height: 60rpx;
+}
+
+.container .body .o_con .o-center .right .right_tab .des {
+  padding-bottom: 50rpx;
+  font-size: 24rpx;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  position: relative;
+}
+
+.container .body .o_con .o-center .right .right_tab .des .img_con {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 5rpx;
+  /* flex: 1; */
+}
+
+.container .body .o_con .o-center .right .right_tab .des .text_con {
+  font-size: 24rpx;
+  height: auto;
+  flex: 2.4;
+}
+
+.container .body .o_con .o-center .right .right_tab .des .text_con .text {
+  display: block;
+  line-height: 40rpx;
+  margin-left: 20rpx;
+}
+
+.container .body .o_con .o-center .right .right_tab .des .text_con .name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.container .body .o_con .o-center .right .right_tab .des .text_con .desc {
+  font-size: 24rpx;
+  color: #888;
+  width: 365rpx;
+  height: 83rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.container .body .o_con .o-center .right .right_tab .des .text_con .price {
+  font-size: 34rpx;
+  color: #ff2b4d;
+}
+
+.container .body .o_con .o-center .right .right_tab .add_btn {
+  position: absolute;
+  right: 40rpx;
+  bottom: 50rpx;
+  width: 45rpx;
+  height: 45rpx;
+  padding: 40rpx 0 0 40rpx;
+}
+
+.container .body .o_con .info {
+  width: 100%;
+  height: 50rpx;
+  position: absolute;
+  background-color: #fff0e7;
+  line-height: 50rpx;
+  font-size: 20rpx;
+  text-align: center;
+  bottom: 130rpx;
+  z-index: 1000;
+}
+
+.container .body .o_con .info .from {
+  color: #ff6b12;
+}
+
+.container .body .o_con .info .tx {
+  color: #888;
+}
+
+.order-info {
+  width: 100%;
+  height: 106rpx;
+  position: absolute;
+  left: 0;
+  z-index: 10000;
+  bottom: -6rpx;
+  line-height: 106rpx;
+  font-size: 0;
+  text-align: center;
+  background-color: #3cc51f;
+  display: flex;
+}
+
+.car_left {
+  width: 77%;
+  background-color: #393939;
+}
+
+.cantap {
+  border-color: #ff6b12;
+}
+
+.order-info .o-left {
+  width: 23%;
+  background-color: #393939;
+  padding-left: 25%;
+  text-align: left;
+  font-size: 38rpx;
+  color: #fff;
+  line-height: 100rpx;
+}
+
+.order-info .o-right {
+  flex: 1;
+  background-color: #ff6b12;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  line-height: 100rpx;
+}
+
+.order-info .shop-cart {
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  bottom: 10%;
+  left: 3%;
+  z-index: 999;
+}
+
+.order-info .shop-number {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  left: 90rpx;
+  bottom: 90rpx;
+  background-color: #ff2b4d;
+  text-align: center;
+  line-height: 30rpx;
+  font-size: 20rpx;
+  color: #fff;
+  z-index: 1000;
+}
+
+.car_scroll {
+  overflow: scroll;
+}
+
+.container .body .c-con {
+  box-sizing: border-box;
+  padding: 0rpx 30rpx 0rpx 30rpx;
+}
+
+.container .body .c-con .com-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20rpx 0;
+}
+
+.container .body .c-con .com-container .comment {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.container .body .c-con .com-container .com-more {
+  font-size: 22rpx;
+  color: #888;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 98rpx;
+}
+
+.mask .shop-car-con {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0rpx;
+  left: 0;
+  /* padding-bottom:98rpx; */
+  background: #fff;
+  z-index: 1000;
+  max-height: 60%;
+  /* overflow: scroll; */
+}
+
+.mask .shop-car-con .clear_car {
+  width: 100%;
+  height: 78rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 4%;
+  box-sizing: border-box;
+  background: #ddd;
+}
+
+.mask .shop-car-con .clear_car image {
+  display: block;
+  width: 15rpx;
+  height: 17rpx;
+  margin-right: 10rpx;
+}
+
+.mask .shop-car-con .clear_car text {
+  color: #888;
+  font-size: 24rpx;
+}
+
+.mask .shop-car-con  .car_content {
+  width: 100%;
+  padding: 0 4%;
+  box-sizing: border-box;
+  height: 100rpx;
+  border-top: 1rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.mask .shop-car-con  .car_content .order_name {
+  width: 350rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.mask .shop-car-con  .car_content .order_name text:last-of-type {
+  font-size: 24rpx;
+  color: #888;
+  margin-left: 20prx;
+}
+
+.mask .shop-car-con  .car_content .order_right {
+  width: 260rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mask .shop-car-con  .car_content .order_right .order_price {
+  color: #ff6b12;
+  font-size: 26rpx;
+}
+
+.mask .shop-car-con  .car_content .order_right .order_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 154rpx;
+}
+
+.mask .shop-car-con  .car_content .order_right .order_btn text {
+  font-size: 38rpx;
+  color: #333;
+  display: block;
+  width: 45rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.mask .shop-car-con  .car_content .order_right .order_btn text:first-of-type {
+  color: #888;
+  font-size: 40rpx;
+  line-height: 12rpx;
+  font-weight: bold;
+  border-radius: 100%;
+  border: 3rpx solid #ddd;
+}
+
+.mask .shop-car-con  .car_content .order_right .order_btn image {
+  display: block;
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.cancel_table_container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.cancel_table_container .cancel_table {
+  width: 100%;
+  height: auto;
+  padding: 30rpx 4%;
+  box-sizing: border-box;
+  position: absolute;
+  background: #fff;
+  bottom: 102rpx;
+  right: 0;
+  border-radius: 5rpx;
+}
+
+.cancel_table_container .cancel_table .cancel_title {
+  width: 100%;
+  margin: 0 auto;
+  height: 150rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 40rpx;
+}
+
+.cancel_table_container .cancel_table .cancel_title image {
+  display: block;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 5rpx;
+}
+
+.cancel_table_container .cancel_table .cancel_title  .seclet_text {
+  width: 435rpx;
+}
+
+.discount_info {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.discount_info text {
+  display: block;
+  font-size: 24rpx;
+  color: #888;
+}
+
+.cancel_table_container .cancel_table .cancel_title  .seclet_text view {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.cancel_table_container .cancel_table .cancel_title  .seclet_text view:first-of-type {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.cancel_table_container .cancel_table .cancel_title  .seclet_text view:last-of-type {
+  font-size: 34rpx;
+  color: #ff2b4d;
+}
+
+.cancel_table_container .cancel_table .cancel_title .close {
+  color: #888;
+  font-size: 50rpx;
+}
+
+.cancel_table_container .cancel_table .spec_container {
+  width: 100%;
+  font-size: 26rpx;
+}
+
+.cancel_table_container .cancel_table .spec_container .spec_title {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: bold;
+  margin: 20rpx;
+}
+
+.cancel_table_container .cancel_table .spec_container .spec_content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* font-size: 26rpx; */
+}
+
+.cancel_table_container .cancel_table .spec_container .spec_content span {
+  font-size: 26rpx;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 12rpx;
+  border-radius: 5rpx;
+  background: #f5f5f5;
+  color: #666;
+}
+
+.cancel_table_container .cancel_table .spec_container .spec_content span.active {
+  color: #ff6b12;
+  background: #ffe1d0;
+}
+
+.cancel_table_container .cancel_table .ensure {
+  width: 100%;
+  height: 80rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  background: #ff6b12;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 5rpx;
+}
+
+.empty {
+  width: 100%;
+  height: 300rpx;
+  padding: 100rpx 0;
+  text-align: center;
+}
+
+.empty image {
+  display: block;
+  width: 110rpx;
+  height: 90rpx;
+  margin: 30rpx auto;
+}
+
+.empty text {
+  display: block;
+  width: 100%;
+  text-align: center;
+}

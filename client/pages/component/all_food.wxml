@@ -1,0 +1,10 @@
+<!-- 全部美食界面 -->
+<template name="all_foodst">
+  <view class='all-food-con'>
+      <view class="all-food-con-child {{allFoodTab==index?'active':''}}"
+            wx:for="{{nav_indexData}}" wx:key="*this" 
+            data-type="{{index}}" 
+            bindtap="clickAllFoodSelect"
+            >{{item.title}} </view>
+  </view>
+</template>

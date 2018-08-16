@@ -1,0 +1,84 @@
+/* pages/mytalk/mytalk.wxss */
+.review_title{
+  width: 100%;
+  padding: 0 4%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  height: 76rpx;
+  border-top:1rpx solid #ddd; 
+  font-size: 26rpx;
+  color: #333;
+}
+.review_title text{
+  display: block;
+  height: 100%;
+  line-height: 76rpx;
+  text-align: center;
+}
+.review_title text.active{
+   color: #ff6b12;
+   border-bottom: 1rpx solid #ff6b12;
+}
+.review_content_container{
+  width: 92%;
+  margin: 0 4%;
+ 
+
+
+}
+.review_content_container .review_catagery{
+   display: flex;
+   flex-wrap: wrap;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid #ddd;
+  padding: 10rpx 0;
+}
+  
+.review_content_container  .review_catagery  text{
+  display: block;
+  padding: 11rpx 45rpx;
+  font-size: 24rpx;
+  background: #f5f5f5;
+  border-radius: 5rpx;
+  text-align: center;
+  height: 44rpx;
+  line-height: 44rpx;
+  margin:10rpx;
+}
+.review_content_container .review_catagery text.active{
+  background: #ffe1d0;
+  color: #ff6b12
+}
+.review_content{
+  width: 100%;
+  padding: 20rpx 0 0;
+}
+
+.review_content_container .review_content .container .right text.date{
+  background: #fff;
+}
+.empty{
+  width:300rpx;
+  height:300rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+ text-align: center;
+}
+.empty image{
+  display: block;
+  width: 110rpx;
+  height: 100rpx;
+  margin: 30rpx auto;
+}
+.empty text{
+  display: block;
+  text-align: center;
+  color: #666;
+  font-size: 26rpx;
+}

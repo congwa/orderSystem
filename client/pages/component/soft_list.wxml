@@ -1,0 +1,15 @@
+<!-- 距离排序页面 -->
+
+<template name="soft_listst">
+  <view class='soft-list'>
+    <view class='soft-list-con'>
+      <view class="soft-list-con-child {{softListTab==index?'active':''}}"
+            wx:for="{{soft_list}}" wx:key="" 
+            data-type="{{index}}" 
+            bindtap="clickSoftListSelect"
+            >{{item.text}} </view>
+    </view>
+  </view>
+</template>
+
+ 

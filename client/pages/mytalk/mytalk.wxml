@@ -1,0 +1,13 @@
+<!-- pages/mytalk/mytalk.wxml -->
+<!-- pages/reviewlist/reviewlist.wxml -->
+<view class='containers'>
+  <view class='review_content_container'>
+    <view wx:for="{{commitList}}" class='review_content' bindtap='reviewDetails'>
+      <component-talk t-type="0" t-list="{{item}}"></component-talk>
+    </view>
+  </view>
+</view>
+<view class="empty" wx:if="{{!showflag}}">
+  <image src="../images/empty2.png"></image>
+  <text>亲，您暂时没有评价呢</text>
+</view>

@@ -1,0 +1,92 @@
+<!-- index.wxml -->
+<!-- <view hidden='{{canuse}}' >
+  <open-data type="userAvatarUrl"></open-data>
+  <open-data type="userNickName"></open-data>
+
+  
+  <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <view wx:else>请升级微信版本</view>
+</view> -->
+<!-- 附近 -->
+<import src="../component/nearby.wxml" />
+<!-- 显示下拉框tabbar -->
+<import src="../component/index_list.wxml" />
+<!-- 全部食品 -->
+<import src="../component/all_food.wxml" />
+<!-- 排序 -->
+<import src="../component/soft_list.wxml" />
+<!-- 全部美食弹窗 bindtap="markAllFoodCancle"  bindtap='closeAllMark' -->
+<view class="mask" hidden="{{!markAllFood}}">
+  <template is="idnex_viewst" data="{{nav_indexData,cityData,soft_list,allFoodTab,nearbyLeftTab,isNearbySelect,nearbyTab,softListTab,curTab}}" />
+  <template is="all_foodst" data="{{nav_indexData,allFoodTab}}"></template>
+</view>
+<!-- 附近弹窗  bindtap="markNearbyCancle" bindtap='closeAllMark' -->
+<view class="mask" hidden="{{!markNearby}}">
+  <template is="idnex_viewst" data="{{nav_indexData,cityData,soft_list,allFoodTab,nearbyLeftTab,isNearbySelect,nearbyTab,softListTab,curTab,dis_list}}" />
+  <template is="nearbyst" data="{{cityData,nearbyLeftTab,nearbyTab,dis_list}}"></template>
+</view>
+<!-- 距离排序弹窗  bindtap="markSoftCancle"  bindtap='closeAllMark' -->
+<view class="mask" hidden="{{!markSoft}}">
+  <template is="idnex_viewst" data="{{nav_indexData,cityData,soft_list,allFoodTab,nearbyLeftTab,isNearbySelect,nearbyTab,softListTab,curTab}}" />
+  <template is="soft_listst" data="{{soft_list,softListTab}}"></template>
+</view>
+<view class="container">
+  <view class='header'>
+    <view class='search_box'>
+      <input type='text' class='weui-input search' placeholder='请输入店铺名' placeholder-style="color:#cccbcb;" bindconfirm="searchShop" bindinput="searchEnd" />
+      <icon type='search' size="14"></icon>
+    </view>
+  </view>
+  <!-- 筛选 -->
+  <template is="idnex_viewst" data="{{nav_indexData,cityData,soft_list,allFoodTab,nearbyLeftTab,isNearbySelect,nearbyTab,softListTab,curTab,dis_list}}" />
+  <view class="shop_contain">
+    <view class="shop_center">
+      <dl bindtap='toShop' wx:for="{{shop_List}}" wx:key="*this" data-shopid="{{item.id}}">
+        <dt>
+          <image src="{{URL.PROJECT_ROOT + item.logo}}"></image>
+        </dt>
+        <dd>
+          <view class="shop_right_top">
+            <view class='title'>{{item.title}}</view>
+            <view class="star_price">
+              <view class="star">
+                <image src='../images/6shop_21.png' wx:for="{{item.score}}" wx:key=""></image>
+                <text>{{item.score}}</text>
+              </view>
+              <view class="price">
+                人均
+                <text>¥{{item.price/100}}</text>
+                /人
+              </view>
+            </view>
+            <view class="more">
+              <view class='more_left'>
+                <text>{{item.name}}</text>
+                <text>{{item.type}}</text>
+              </view>
+              <view class='more_right'>{{item.distance}}</view>
+            </view>
+          </view>
+          <view class="shop_right_bottom">
+            <view wx:if="{{item.preferential.decrease}}" hidden="{{i>1}}" data-index="{{i}}" wx:for="{{item.preferential.decrease}}" wx:for-item="k" wx:for-index="i">
+              <text>满减</text>
+              满{{k[0]}}减{{k[1]}}
+            </view>
+            <!-- <view wx:if="{{item.preferential.send}}" hidden="{{i>1}}" data-index="{{i}}" wx:for="{{item.preferential.send}}" wx:for-item="k" wx:for-index="i">
+              <text >优惠</text>
+                满{{k[0]}}送代金券{{k[1]}}元
+            </view> -->
+          </view>
+        </dd>
+      </dl>
+    </view>
+  </view>
+</view>
+<view class="empty" wx:if="{{searchBool && shop_List.length==0 }}">
+  <image src="../images/empty3.png"></image>
+  <text>亲，没搜索到东西呢</text>
+</view>
+<view class="empty" wx:if="{{!searchBool && shop_List.length==0 }}">
+  <image src="../images/empty_shop.png"></image>
+  <text>亲，这个地区没有店铺呢</text>
+</view>

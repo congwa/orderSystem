@@ -1,0 +1,178 @@
+  <view class="good_box" hidden="{{hide_good_box}}"  style="left: {{bus_x}}px; top: {{bus_y}}px;"></view>
+<!-- 商品规格弹窗 -->
+<view class="cancel_table_container" wx:if="{{specbox}}">
+  <view class="cancel_table">
+    <view class="cancel_title">
+      <image src='{{URL.PROJECT_ROOT+currentComData.img}}'></image>
+      <view class='seclet_text'>
+        <view>{{currentComData.title}}</view>
+        <view>已选：{{currentComData.spec?currentComData.spec:'默认'}}</view>
+        <view>￥{{currentComData.price}}</view>
+      </view>
+      <text bindtap='closeSpecBoxs' class='close'>×</text>
+    </view>
+    <!-- <view class='spec_container'>
+      <view class='spec_title'>规格</view>
+      <view class='spec_content'>
+         <text class="spec-btn {{curSpec==index?'active':''}}" wx:for="{{tasteMaskData.spec}}">{{item.text}}</text>
+      </view>
+    </view> -->
+    <view class='spec_container taste'>
+      <view class='spec_title'>口味</view>
+      <view class='spec_content'>
+        <span class="taste-btn {{curTaste==item?'active':''}}" wx:for="{{tasteMaskData}}" wx:key="*this" data-tab="{{item}}" bindtap="clickSelectSpec">
+          {{item}}
+        </span>
+      </view>
+    </view>
+    <view class='ensure' bindtap='showSpecbox'>选好了</view>
+  </view>
+</view>
+<!-- 购物车弹窗 -->
+<view class="mask" wx:if="{{shopNumber>0}}" hidden="{{!maskShopCar}}" data-ty="1" bindtap='maskCar'>
+  <view class="shop-car-con">
+    <view wx:if="{{shopNumber>0}}" class='clear_car' bindtap='clearShopCar'>
+      <image src='../images/car_04.png'></image>
+      <text>清空购物车</text>
+    </view>
+    <view wx:if="{{shopNumber==0}}" class='clear_car' bindtap=''>
+      <image src='../images/car_04.png'></image>
+      <text>购物车无商品</text>
+    </view>
+    <view class="car_scroll" style="height:{{windowHeight/2}}rpx">
+      <view class='car_content' wx:for="{{shopCarData}}" wx:for-index="gkey" wx:for-item="ginfo" wx:key="*this">
+        <view class='order_name'>
+          <text>{{ginfo.title}}</text>
+          <text>【{{ginfo.spec==''?'默认':ginfo.spec}}】</text>
+        </view>
+        <view class='order_right'>
+          <text class='order_price'>￥{{ginfo.price}}</text>
+          <view class='order_btn'>
+            <text bindtap='decreaseNum' data-commid="{{ginfo.id}}" data-gkey="{{gkey}}" class="cantap">
+              -
+            </text>
+            <text>{{ginfo.num}}</text>
+            <image src='../images/order-add.png' data-gkey="{{gkey}}" data-commid="{{ginfo.id}}" bindtap='addNum'></image>
+            <!-- <image src='../images/order-add.png' data-gkey="{{gkey}}" bindtap='addNum'></image> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 购物车 -->
+<view class="order-info">
+  <view class='car_left' bindtap='showcar'>
+    <!-- <view class="o-left">￥{{tasteData.price*shopNumber}}</view> -->
+    <view wx:if="{{shopNumber>0}}" class="o-left">￥{{sumPrice}}</view>
+    <image class="shop-cart" src="../images/car_26.png"></image>
+    <view wx:if="{{shopNumber>0}}" class="shop-number">
+      <text>{{shopNumber<0?0:shopNumber}}</text>
+    </view>
+  </view>
+  <view class="o-right" bindtap='toPay'>下单</view>
+</view>
+<!-- 页面主内容 -->
+<view class='container'>
+  <view class="title">
+    <view class="sign">{{title}}</view>
+    <view class="des">
+      <image class="img_con" src="{{URL.PROJECT_ROOT+logo}}" data-src="{{logo}}"></image>
+      <view class="text_con">
+        <view class="text">
+          <view class="open_time">
+            营业时间:
+            <text style="margin-left: 15rpx">{{opentimes}}</text>
+          </view>
+          <view class="weui-btn-area" type="default" bindtap="open" data-tel="{{}}">
+            <image class="sign_btn" src="../images/car_13.png"></image>
+          </view>
+        </view>
+        <view class="text">
+          详细地址:
+          <text style="margin-left: 15rpx">{{address}}</text>
+        </view>
+        <view class="text" wx:if='{{affiche}}'>
+          公告:
+          <text style="margin-left: 15rpx">{{affiche}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="coupon">
+    <text class="ticket">减</text>
+    <view class="discount_info">
+      <text wx:for='{{decrease}}' wx:key="*this">满{{item[0]}}减{{item[1]}}元；</text>
+    </view>
+  </view>
+  <view class="body">
+    <view class="b_title">
+      <view class="order" data-current="0" bindtap="changeSelect">
+        <view class="com {{curSelect==0?'active':''}}">点餐</view>
+      </view>
+      <view class="comment" data-current="1" bindtap="changeSelect">
+        <view class="com {{curSelect==1?'active':''}}">评论</view>
+      </view>
+    </view>
+    <swiper current="{{curSelect}}" duration="300" bindchange="swiperTab" style="height:{{conentHeight}}rpx;">
+      <swiper-item>
+        <view class="o_con" style="height:{{conentHeight}}rpx;">
+          <view class="o-center">
+            <view class="left">
+              <view class="tab {{curOrderSelect==item.cid?'active':''}}" wx:for="{{tabSelect}}" wx:for-index="indx" wx:key="" data-scrollid="{{'scroll'+indx}}" data-cid="{{item.cid}}" bindtap="clickTab">
+                {{item.name}}
+              </view>
+            </view>
+            <view class="right">
+              <scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr" style="height:{{conentHeight}}rpx;" bindscroll='bindScroll'>
+                <view class="right_tab" wx:for="{{tabSelect}}" wx:for-index="indx" wx:key="*this" id="{{'scroll'+indx}}" data-cid="{{item.cid}}" data-gid="{{item.gid}}">
+                  <view class="des_type">{{item.name}}</view>
+                  <view class="des" wx:for="{{tabSelect[indx].data}}" wx:key="*this" data-comid='{{item.gid}}'>
+                    <image class="img_con" src="{{URL.PROJECT_ROOT+item.thumb}}" data-src="{{item.thumb}}" bindtap="previewImg"></image>
+                    <view class="text_con">
+                      <text class="text name">{{item.goodsName}}</text>
+                      <text class="text desc">{{item.summary}}</text>
+                      <text class="text price">￥{{item.price/100}}</text>
+                    </view>                    
+                    <image class="add_btn" bindtap='touchOnGood' data-comid='{{item.gid}}' data-name='{{item.goodsName}}' data-img="{{item.thumb}}" data-cindex="{{indx}}" data-index="{{index}}" data-expand="{{item.expand}}" data-price='{{item.price/100}}' src="../images/order-add.png"></image>
+                  </view>
+                </view>
+              </scroll-view>
+            </view>
+          </view>
+          <!-- 优惠信息 -->
+          <!-- <view class="info">
+            <text wx:for="{{couponData}}" wx:key="">
+                        <text class="tx">满</text>
+            <text class="from">{{item.from}}</text>
+            <text class="tx">送</text>
+            <text class="to tx">{{item.to}}</text>
+            <text class="tx" wx:if="{{couponData.length != index+1}}">，</text>
+            </text>
+          </view> -->
+          <!-- <view class="info"> 已减{{}}元</view> -->
+          <!-- 购物车 -->
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <!-- 评论界面 -->
+        <view class="c-con">
+          <view class="com-container">
+            <text class="comment">相关评论</text>
+            <text class="com-more" bindtap='reviewList'>查看更多评价＞</text>
+          </view>
+          <view wx:if="{{!commitData || !commitData.list || commitData.list==0}}" class="empty">
+            <image src='../images/empty2.png'></image>
+            <text style="font-size:20rpx">此店铺没有相关评论</text>
+          </view>
+          <scroll-view scroll-y bindscrolltolower="commitScrollBottom" style="height:{{windowHeight}}rpx">
+            <view wx:for="{{commitData.list}}" wx:key="*this">
+              <component-talk t-type="0" t-list="{{item}}"></component-talk>
+            </view>
+          </scroll-view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="bottom"></view>
+</view>

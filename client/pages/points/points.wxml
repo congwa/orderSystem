@@ -1,0 +1,56 @@
+<!-- pages/points/points.wxml -->
+<view class="container">
+   <!-- <view class="ad_img">
+         <image src="../images/pocket_02.png"></image> 
+    </view>-->
+    <view class="points_sum">
+        <view class="sum_num">
+            余额：
+            <text>{{score}}</text>
+        </view>
+        <!-- <view class="charge_btn" bindtap='showcalendar'>
+            <image src="../images/points_03.png"></image>
+            {{isSign}}
+        </view> -->
+    </view>
+    <view class="deal_details_title">积分明细</view>
+    <view class="deal_details_container" wx:for="{{data}}">
+        <view class="deal_details">
+            <view class="details">
+                <text>{{item.content}}</text>
+                <text wx:if="{{item.behavior == 1}}">+{{item.integral}}</text>
+                <text wx:if="{{item.behavior == 2}}">-{{item.integral}}</text>
+                <text wx:if="{{item.behavior == 0}}">+{{item.integral}}</text>
+                <view>{{}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- <view class="sign_container" wx:if="{{calendarflag}}">
+    <view class="sign_content">
+        <view class="close_btn" bindtap='showcalendarClose'>×</view>
+        <image src="../images/signed_03.jpg"></image>
+        <view class="hasdays">
+            已连续签到
+            <text>{{signData.count}}</text>
+            天
+        </view>
+        <view class="score">积分 +{{data[0].integral}}</view>
+        <text class="year">{{time[0]}}年{{time[1]}}月</text>
+        <view class="calendar">
+            <view class="weekName">
+                <view class="sunday">日</view>
+                <view class="monday">一</view>
+                <view class="tuesday">二</view>
+                <view class="wednesday">三</view>
+                <view class="thursday">四</view>
+                <view class="friday">五</view>
+                <view class="saturday">六</view>
+            </view>
+            <view class="week">
+                <view class="cell" wx:for="{{week}}"></view>
+                <view class="cell " wx:for="{{days}}" wx:for-index="index"><text class="{{item==1?'active':''}}">{{index+1}}</text></view>
+            </view>
+        </view>
+    </view>
+</view> -->

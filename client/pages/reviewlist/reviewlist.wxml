@@ -1,0 +1,20 @@
+<!--pages/reviewlist/reviewlist.wxml-->
+<view class='containers'>
+  <view class='review_title'>
+     <text class="{{type==1?'active':''}}"  data-current="1" bindtap="typeChange">点评</text>
+     <text class="{{type==2?'active':''}}" data-current="2" bindtap="typeChange">有图点评（{{count}}）</text>
+  </view>
+  <view class='review_content_container'>
+      <view class='review_catagery'>
+         <text wx:for="{{scoreList}}" class="{{score==index?'active':''}}" data-current="{{index}}" bindtap="scoreChange">{{item}}</text>
+      </view>
+      <view class='review_content' bindtap='reviewDetails' wx:for="{{commitList}}">
+          <component-talk t-type="2" t-list="{{item}}"> </component-talk>
+       </view>
+       <view wx:if="{{commitList.length<=0 || !commitList}}" class="empty">
+                  <image src='../images/empty2.png'></image>
+            <text style="font-size:20rpx">此店铺没有相关评论</text>
+       </view>
+  </view>
+ 
+</view>

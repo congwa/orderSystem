@@ -1,0 +1,223 @@
+.ad_img {
+  width: 100%;
+  height: 180rpx;
+}
+.ad_img image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.points_sum {
+  width: 100%;
+  margin-top: 20rpx;
+  padding: 20rpx 0;
+  background: #ecfafa;
+  text-align: center;
+}
+.points_sum .sum_num {
+  font-size: 30rpx;
+  color: #333;
+}
+.points_sum .sum_num text {
+  color: #ff2b4d;
+  font-size: 47rpx;
+}
+.points_sum .charge_btn {
+  width: 280rpx;
+  height: 48rpx;
+  text-align: center;
+  color: #ff6b12;
+  font-size: 30rpx;
+  line-height: 48rpx;
+  -webkit-border-radius: 5rpx;
+  -moz-border-radius: 5rpx;
+  border-radius: 5rpx;
+  border: 1rpx solid #ff6b12;
+  margin: 20rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.points_sum .charge_btn image {
+  display: inline-block;
+  width: 33rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.deal_details_title {
+  width: 100%;
+  padding: 0 4%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 30rpx;
+  height: 78rpx ;
+  line-height: 78rpx ;
+  margin-top: 20rpx ;
+  background: #f5f5f9;
+  font-weight: bold;
+}
+.deal_details_container {
+  width: 100%;
+}
+.deal_details_container .deal_details {
+  width: 100%;
+}
+.deal_details_container .deal_details .details {
+  width: 96%;
+  padding: 32rpx  8% 32rpx 0;
+  margin-left: 4%;
+  border-bottom: 1rpx solid #e2e2e2;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.deal_details_container .deal_details .details text:last-of-type {
+  color: #ff2b4d;
+}
+.deal_details_container .deal_details .details_open {
+  background: #f5f5f9;
+  width: 100%;
+  padding-left: 4%;
+  box-sizing: border-box;
+}
+.deal_details_container .deal_details .details_open .open_part {
+  width: 96%;
+  padding: 32rpx  8% 32rpx 0;
+  border-bottom: 1rpx solid #e2e2e3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  color: #888;
+  font-size: 26rpx;
+  position: relative;
+}
+.deal_details_container .deal_details .details_open .open_part:first-of-type::before {
+  content: "";
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  background: #f5f5f9;
+  border-left: 1rpx solid #e5e5e5;
+  border-top: 1rpx solid #e5e5e5;
+  transform: rotateZ(45deg);
+  position: absolute;
+  top: -7rpx;
+  right: 10%;
+}
+.sign_container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.sign_container .sign_content {
+  width: 94.8%;
+  height: 93%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+  border-radius: 5rpx;
+}
+.sign_container .sign_content .close_btn {
+  width: 98%;
+  margin: 20rpx auto;
+  text-align: right;
+  font-size: 40rpx;
+}
+.sign_container .sign_content image {
+  display: block;
+  width: 454rpx;
+  height: 260rpx;
+  margin: 5rpx auto;
+}
+.sign_container .sign_content .hasdays {
+  width: 100%;
+  text-align: center;
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+}
+.sign_container .sign_content .hasdays text {
+  font-size: 40rpx;
+  color: #ff2b4d;
+}
+.sign_container .sign_content .score {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 38rpx;
+  color: #ff2b4d;
+}
+.sign_container .sign_content .year {
+  display: block;
+  width: 96%;
+  margin: 10rpx auto;
+  color: #333;
+  font-size: 26rpx;
+}
+.sign_container .sign_content .calendar {
+  width: 96%;
+  margin: 10rpx auto;
+  height: 492rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #cdcdcd;
+  border-top: 6rpx solid #ff871f;
+}
+.sign_container .sign_content .calendar .weekName {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.sign_container .sign_content .calendar .weekName view {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #ff6b12;
+  font-size: 30rpx;
+  background: #fffbeb;
+}
+.sign_container .sign_content .calendar .week {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.sign_container .sign_content .calendar .week view.cell {
+  width: 13.78%;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #747474;
+  border: 1rpx solid #f2f3f7;
+  border-bottom: none;
+  border-right: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sign_container .sign_content .calendar .week view.cell text {
+  width: 48rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  color: #333;
+  font-size: 26rpx;
+  display: inline-block;
+}
+.sign_container .sign_content .calendar .week view.cell text.active {
+  border-radius: 50rpx;
+  background: #ff6b12;
+  color: #fff;
+}
